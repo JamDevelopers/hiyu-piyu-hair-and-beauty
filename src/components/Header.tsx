@@ -42,11 +42,12 @@ export const Header: React.FC<HeaderProps> = ({ activePage, onNavigate }) => {
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className={`sticky top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-[#3A0612]/92 backdrop-blur-md border-b border-[#D5AA63]/30 shadow-xl py-2'
-          : 'bg-[#4A0718] border-b border-[#D5AA63]/20 py-3'
+          ? 'bg-[#3A0612]/92 backdrop-blur-md border-b border-[#D5AA63]/30 shadow-xl'
+          : 'bg-[#4A0718] border-b border-[#D5AA63]/20'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+    
+      <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between transition-all ${scrolled ? 'py-2' : 'py-3'}`}>
         {/* Brand Wordmark (Preserving exact logo requested by user) */}
         <button
           onClick={() => handleNavClick('home')}
@@ -103,11 +104,11 @@ export const Header: React.FC<HeaderProps> = ({ activePage, onNavigate }) => {
           </button>
         </div>
 
-        {/* Mobile Hamburger */}
+        {/* Mobile Hamburger (sm:hidden on Book button prevents duplicate buttons on iPad and rotated phone) */}
         <div className="flex lg:hidden items-center gap-2.5">
           <button
             onClick={() => handleNavClick('book')}
-            className="px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-[#241316] bg-gradient-to-r from-[#D5AA63] to-[#E9CB8A] rounded-full shadow-sm cursor-pointer"
+            className="sm:hidden px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-[#241316] bg-gradient-to-r from-[#D5AA63] to-[#E9CB8A] rounded-full shadow-sm cursor-pointer"
           >
             Book
           </button>

@@ -49,11 +49,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateToBooking }) => 
                 <div>
                   <div className="flex items-center gap-2">
                     <span className="font-serif font-bold text-stone-900 text-sm">
-                      Women Club Certified Member
+                      Women Club Certified &amp; Working Member
+                    </span>
+                    <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full border border-emerald-300">
+                      Verified
                     </span>
                   </div>
                   <span className="text-xs text-stone-600 block mt-0.5">
-                    Official accreditation at <strong className="text-[#4A0718]">womenclub.co.in</strong>
+                    Official accreditation at <strong className="text-[#4A0718]">womenclub.co.in</strong> for Himanshi Patel
                   </span>
                 </div>
               </div>

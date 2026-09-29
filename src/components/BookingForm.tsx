@@ -20,7 +20,8 @@ import {
   Check,
   Search,
   X,
-  SlidersHorizontal
+  SlidersHorizontal,
+  Award
 } from 'lucide-react';
 import { services, Service, serviceCategories } from '../data/services';
 import { timeSlots, defaultDate } from '../data/timeSlots';
@@ -344,6 +345,27 @@ export const BookingForm: React.FC<BookingFormProps> = ({
         </div>
       </div>
 
+      {/* Official Women Club Credential Bar */}
+      <div className="bg-[#FFF7E9] border-b border-[#D5AA63]/40 px-5 sm:px-8 py-3 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs">
+        <div className="flex items-center gap-2.5">
+          <div className="w-6 h-6 rounded-full bg-[#4A0718] text-[#E9CB8A] flex items-center justify-center shrink-0">
+            <Award className="w-3.5 h-3.5 text-[#E9CB8A]" />
+          </div>
+          <span className="text-stone-700">
+            <strong>Himanshi Patel</strong> is an officially verified <strong className="text-[#8E1837]">Certified &amp; Working Member</strong> of <strong className="text-stone-900">Women Club</strong>.
+          </span>
+        </div>
+        <a
+          href="https://womenclub.co.in/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#4A0718] font-bold hover:underline inline-flex items-center gap-1 text-[11px] whitespace-nowrap bg-white px-3 py-1 rounded-full border border-[#D5AA63]/40 shadow-2xs"
+        >
+          <span>Verify at womenclub.co.in</span>
+          <span>↗</span>
+        </a>
+      </div>
+
       {/* Main Content Area */}
       <div className="p-6 sm:p-8">
         {isSubmitted ? (
@@ -493,6 +515,26 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                     </button>
                   </motion.div>
                 )}
+
+                {/* Multi-Select Explanation Banner */}
+                <div className="p-3.5 bg-gradient-to-r from-[#FFF7E9] to-[#FAF5ED] border border-[#D5AA63]/50 rounded-2xl flex items-center justify-between gap-3 text-xs text-stone-700 shadow-2xs">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-7 h-7 rounded-full bg-[#4A0718] text-[#E9CB8A] flex items-center justify-center font-bold text-xs shrink-0">
+                      ✦
+                    </div>
+                    <div>
+                      <span className="font-bold text-[#4A0718] block">
+                        Multi-Service Booking Enabled
+                      </span>
+                      <span className="text-[11px] text-stone-600">
+                        Select multiple treatments below to combine them into one relaxed home visit. Tap any card to add or remove.
+                      </span>
+                    </div>
+                  </div>
+                  <span className="text-[11px] font-bold text-[#8E1837] bg-white px-2.5 py-1 rounded-full border border-[#D5AA63]/40 shrink-0 hidden sm:inline-block">
+                    {selectedServices.length} Selected
+                  </span>
+                </div>
 
                 {/* 1. SELECTED SERVICES TRAY (Real-Time Animated Summary with 1-Click Remove) */}
                 <div className="bg-gradient-to-r from-[#FFFDF9] via-[#FAF5ED] to-[#FFF7E9] rounded-2xl p-4 sm:p-5 border border-[#D5AA63]/40 shadow-sm space-y-3">
@@ -829,7 +871,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                   </button>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-4">
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">
                       Preferred Date *
@@ -848,21 +890,66 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                     )}
                   </div>
 
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">
-                      Preferred Time Slot *
-                    </label>
-                    <select
-                      value={timeSlot}
-                      onChange={(e) => setTimeSlot(e.target.value)}
-                      className="w-full p-3.5 bg-stone-50 border border-stone-300 rounded-xl text-stone-800 text-sm focus:outline-none focus:ring-2 focus:ring-[#D5AA63] cursor-pointer"
-                    >
-                      {timeSlots.map((slot) => (
-                        <option key={slot} value={slot}>
-                          {slot} (Subject to travel window)
-                        </option>
-                      ))}
-                    </select>
+                  {/* Interactive Time Slot Cards with Motion (No old dropdown) */}
+                  <div className="space-y-2.5">
+                    <div className="flex items-center justify-between">
+                      <label className="block text-xs font-bold uppercase tracking-wider text-stone-700">
+                        Preferred Time Slot *
+                      </label>
+                      <span className="text-xs text-stone-500 font-medium">
+                        Selected: <strong className="text-[#4A0718] font-bold">{timeSlot}</strong>
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                      {timeSlots.map((slot) => {
+                        const isSelected = timeSlot === slot;
+                        const isMorning = slot.includes('AM');
+                        const isEvening = slot.includes('05:') || slot.includes('06:');
+                        const period = isMorning ? 'Morning' : isEvening ? 'Evening' : 'Afternoon';
+
+                        return (
+                          <motion.button
+                            key={slot}
+                            type="button"
+                            whileHover={{ y: -3, transition: { duration: 0.2 } }}
+                            whileTap={{ scale: 0.97 }}
+                            onClick={() => setTimeSlot(slot)}
+                            className={`p-3.5 rounded-2xl border text-left transition-all cursor-pointer flex flex-col justify-between relative overflow-hidden group ${
+                              isSelected
+                                ? 'bg-gradient-to-br from-[#FFF7E9] to-[#FAF5ED] border-2 border-[#D5AA63] shadow-md ring-2 ring-[#D5AA63]/40'
+                                : 'bg-white border-stone-200 hover:border-[#D5AA63]/60 hover:shadow-xs'
+                            }`}
+                          >
+                            <div className="flex items-center justify-between w-full">
+                              <span className={`text-[10px] font-bold uppercase tracking-wider ${isSelected ? 'text-[#8E1837]' : 'text-stone-400'}`}>
+                                {period}
+                              </span>
+                              {isSelected ? (
+                                <motion.span
+                                  initial={{ scale: 0 }}
+                                  animate={{ scale: 1 }}
+                                  className="w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs shadow-2xs"
+                                >
+                                  ✓
+                                </motion.span>
+                              ) : (
+                                <Clock className="w-3.5 h-3.5 text-stone-300 group-hover:text-[#D5AA63] transition-colors" />
+                              )}
+                            </div>
+
+                            <div className="mt-2.5">
+                              <span className={`font-mono text-base font-bold tracking-tight block ${isSelected ? 'text-[#4A0718]' : 'text-stone-900'}`}>
+                                {slot}
+                              </span>
+                              <span className="text-[10px] text-stone-500 block mt-0.5">
+                                Travel window
+                              </span>
+                            </div>
+                          </motion.button>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
 
@@ -942,39 +1029,68 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div className="sm:col-span-1">
-                    <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1.5">
+                {/* Interactive Surat Locality Cards with Motion (No old dropdown) */}
+                <div className="space-y-2.5">
+                  <div className="flex items-center justify-between">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-stone-700">
                       Surat Locality / Area *
                     </label>
-                    <select
-                      value={area}
-                      onChange={(e) => setArea(e.target.value)}
-                      className="w-full p-3 bg-stone-50 border border-stone-300 rounded-xl text-stone-800 text-sm focus:outline-none focus:ring-2 focus:ring-[#D5AA63] cursor-pointer"
-                    >
-                      {settings.coverageAreas.map((ar) => (
-                        <option key={ar} value={ar}>{ar}</option>
-                      ))}
-                    </select>
+                    <span className="text-xs text-stone-500 font-medium">
+                      Selected: <strong className="text-[#4A0718] font-bold">{area}</strong>
+                    </span>
                   </div>
 
-                  <div className="sm:col-span-2">
-                    <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1.5">
-                      Flat / House, Society &amp; Landmark *
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="e.g. 502, Shivalik Heights, VIP Road..."
-                      value={address}
-                      onChange={(e) => setAddress(e.target.value)}
-                      className={`w-full p-3 bg-stone-50 border ${
-                        validationErrors.address ? 'border-red-500 ring-1 ring-red-500' : 'border-stone-300'
-                      } rounded-xl text-stone-800 text-sm focus:outline-none focus:ring-2 focus:ring-[#D5AA63]`}
-                    />
-                    {validationErrors.address && (
-                      <p className="text-red-600 text-xs mt-1">{validationErrors.address}</p>
-                    )}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    {settings.coverageAreas.map((ar) => {
+                      const isSelected = area === ar;
+                      return (
+                        <motion.button
+                          key={ar}
+                          type="button"
+                          whileHover={{ y: -2, transition: { duration: 0.15 } }}
+                          whileTap={{ scale: 0.97 }}
+                          onClick={() => setArea(ar)}
+                          className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer flex items-center justify-between gap-1.5 ${
+                            isSelected
+                              ? 'bg-gradient-to-br from-[#FFF7E9] to-[#FAF5ED] border-2 border-[#D5AA63] shadow-xs ring-2 ring-[#D5AA63]/40 text-[#4A0718] font-bold'
+                              : 'bg-white border-stone-200 hover:border-[#D5AA63]/50 hover:bg-[#FFFDF9] text-stone-700'
+                          }`}
+                        >
+                          <div className="flex items-center gap-1.5 truncate">
+                            <MapPin className={`w-3.5 h-3.5 shrink-0 ${isSelected ? 'text-[#D5AA63]' : 'text-stone-400'}`} />
+                            <span className="text-xs truncate">{ar}</span>
+                          </div>
+                          {isSelected && (
+                            <motion.span
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              className="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[10px] shrink-0"
+                            >
+                              ✓
+                            </motion.span>
+                          )}
+                        </motion.button>
+                      );
+                    })}
                   </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1.5">
+                    Flat / House, Society &amp; Landmark in Surat *
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 502, Shivalik Heights, VIP Road, Near City Mall..."
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                    className={`w-full p-3.5 bg-stone-50 border ${
+                      validationErrors.address ? 'border-red-500 ring-1 ring-red-500' : 'border-stone-300'
+                    } rounded-xl text-stone-800 text-sm focus:outline-none focus:ring-2 focus:ring-[#D5AA63]`}
+                  />
+                  {validationErrors.address && (
+                    <p className="text-red-600 text-xs mt-1">{validationErrors.address}</p>
+                  )}
                 </div>
 
                 <div>

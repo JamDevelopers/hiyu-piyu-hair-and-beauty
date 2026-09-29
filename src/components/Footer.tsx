@@ -155,7 +155,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-[#F1D79A] text-xs font-semibold border border-[#D8AA55]/40 transition-colors"
               >
                 <Award className="w-3.5 h-3.5 text-[#D8AA55]" />
-                <span>Women Club Certified &amp; Working Member</span>
+                <span>Himanshi Patel • Women Club Certified &amp; Working Member (womenclub.co.in) ↗</span>
               </a>
             </div>
             </div>

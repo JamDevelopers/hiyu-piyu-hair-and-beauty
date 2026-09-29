@@ -140,20 +140,34 @@ Thank you!`;
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-stone-700 mb-1">
-                Surat Locality
-              </label>
-              <select
-                value={inquiryArea}
-                onChange={(e) => setInquiryArea(e.target.value)}
-                className="w-full p-3 bg-stone-50 border border-stone-200 rounded-xl text-stone-800 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#D8AA55] cursor-pointer"
-              >
-                {settings.coverageAreas.map((area) => (
-                  <option key={area} value={area}>
-                    {area}
-                  </option>
-                ))}
-              </select>
+              <div className="flex items-center justify-between mb-1.5">
+                <label className="block text-xs font-semibold text-stone-700">
+                  Surat Locality
+                </label>
+                <span className="text-[11px] text-stone-500">
+                  Selected: <strong className="text-[#4A0718]">{inquiryArea}</strong>
+                </span>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 max-h-48 overflow-y-auto p-1 bg-stone-50 rounded-2xl border border-stone-200">
+                {settings.coverageAreas.map((area) => {
+                  const isSelected = inquiryArea === area;
+                  return (
+                    <button
+                      key={area}
+                      type="button"
+                      onClick={() => setInquiryArea(area)}
+                      className={`p-2 rounded-xl text-left text-xs font-medium transition-all cursor-pointer flex items-center justify-between gap-1 ${
+                        isSelected
+                          ? 'bg-[#4A0718] text-[#E9CB8A] shadow-xs font-bold'
+                          : 'bg-white text-stone-700 hover:bg-stone-100 border border-stone-200/80'
+                      }`}
+                    >
+                      <span className="truncate">{area}</span>
+                      {isSelected && <span className="text-[10px] text-[#E9CB8A]">✓</span>}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
 
             <div>

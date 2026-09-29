@@ -234,7 +234,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                       </span>
                     </div>
                     <span className="text-xs text-stone-700 block mt-0.5 leading-snug">
-                      <strong className="text-[#8E1837] font-bold">Certified Member &amp; Working Member</strong> of <strong className="underline decoration-[#D5AA63]">womenclub.co.in</strong> ↗
+                      <strong className="text-[#8E1837] font-bold">Certified &amp; Working Member</strong> of <strong className="underline decoration-[#D5AA63]">womenclub.co.in</strong> ↗
                     </span>
                     <span className="text-[10px] text-stone-500 block">Surat's accredited doorstep women's wellness specialist</span>
                   </div>

@@ -517,7 +517,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                 )}
 
                 {/* Multi-Select Explanation Banner */}
-                <div className="p-3.5 bg-gradient-to-r from-[#FFF7E9] to-[#FAF5ED] border border-[#D5AA63]/50 rounded-2xl flex items-center justify-between gap-3 text-xs text-stone-700 shadow-2xs">
+                {/* <div className="p-3.5 bg-gradient-to-r from-[#FFF7E9] to-[#FAF5ED] border border-[#D5AA63]/50 rounded-2xl flex items-center justify-between gap-3 text-xs text-stone-700 shadow-2xs">
                   <div className="flex items-center gap-2.5">
                     <div className="w-7 h-7 rounded-full bg-[#4A0718] text-[#E9CB8A] flex items-center justify-center font-bold text-xs shrink-0">
                       ✦
@@ -534,7 +534,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                   <span className="text-[11px] font-bold text-[#8E1837] bg-white px-2.5 py-1 rounded-full border border-[#D5AA63]/40 shrink-0 hidden sm:inline-block">
                     {selectedServices.length} Selected
                   </span>
-                </div>
+                </div>*/}
 
                 {/* 1. SELECTED SERVICES TRAY (Real-Time Animated Summary with 1-Click Remove) */}
                 <div className="bg-gradient-to-r from-[#FFFDF9] via-[#FAF5ED] to-[#FFF7E9] rounded-2xl p-4 sm:p-5 border border-[#D5AA63]/40 shadow-sm space-y-3">

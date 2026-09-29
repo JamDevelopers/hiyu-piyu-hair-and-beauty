@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Sparkles, MessageCircle, Calendar } from 'lucide-react';
+import { Home, Sparkles, ReceiptIndianRupee, Calendar } from 'lucide-react';
 import { openWhatsApp, getGeneralInquiryMessage } from '../utils/whatsapp';
 
 interface MobileStickyBarProps {
@@ -42,16 +42,18 @@ export const MobileStickyBar: React.FC<MobileStickyBarProps> = ({ onNavigate, ac
           <span>Services</span>
         </button>
 
-        {/* 3. WhatsApp (Floating Action) */}
-        <button
-          onClick={() => openWhatsApp(getGeneralInquiryMessage())}
-          className="h-full flex flex-col items-center justify-center transition-all cursor-pointer relative -top-2.5"
-          aria-label="Chat on WhatsApp"
+        {/* 3. Offers */}
+         <button
+          onClick={() => {
+            onNavigate('offers');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          className={`h-full flex flex-col items-center justify-center transition-all text-[11px] font-semibold cursor-pointer ${
+            activePage === 'offers' ? 'text-[#4A0718] font-bold' : 'text-stone-500 hover:text-stone-900'
+          }`}
         >
-          <div className="w-11 h-11 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white flex items-center justify-center shadow-lg border-2 border-[#FEFCF7] transform active:scale-95 transition-transform">
-            <MessageCircle className="w-5 h-5 drop-shadow" />
-          </div>
-          <span className="text-[10px] font-bold text-emerald-700 mt-0.5">WhatsApp</span>
+          <ReceiptIndianRupee className="w-4 h-4 mb-0.5 text-[#D5AA63]" />
+          <span>OFFERS</span>
         </button>
 
         {/* 4. Book */}

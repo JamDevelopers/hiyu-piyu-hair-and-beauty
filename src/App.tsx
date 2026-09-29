@@ -86,7 +86,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-stone-900 selection:bg-[#5B071B] selection:text-white">
+    <div className="min-h-screen flex flex-col bg-[#FFFDF9] text-[#241316] selection:bg-[#4A0718] selection:text-white">
       {/* Top Navigation */}
       <Header
         activePage={activePage}

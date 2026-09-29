@@ -8,6 +8,7 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { WhatsAppFloat } from './components/WhatsAppFloat';
 import { MobileStickyBar } from './components/MobileStickyBar';
+import { PWAInstallManager } from './components/pwa/PWAInstallManager';
 
 import { HomePage } from './pages/HomePage';
 import { ServicesPage } from './pages/ServicesPage';
@@ -161,6 +162,9 @@ export default function App() {
 
       {/* Mobile Bottom Sticky Bar */}
       <MobileStickyBar onNavigate={(page) => navigateTo(page)} />
+
+      {/* PWA Lifecycle & Android Install Manager */}
+      <PWAInstallManager />
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Calendar, MessageCircle, Menu, X, Sparkles } from 'lucide-react';
 import { openWhatsApp, getGeneralInquiryMessage } from '../utils/whatsapp';
+import { InstallButton } from './pwa/InstallButton';
 
 interface HeaderProps {
   activePage: string;
@@ -87,6 +88,8 @@ export const Header: React.FC<HeaderProps> = ({ activePage, onNavigate }) => {
 
         {/* Right CTA Actions */}
         <div className="hidden sm:flex items-center gap-3">
+          <InstallButton variant="compact" />
+
           <button
             onClick={() => openWhatsApp(getGeneralInquiryMessage())}
             className="px-4 py-2 text-xs font-semibold text-[#E9CB8A] hover:text-white border border-[#D5AA63]/50 hover:border-[#D5AA63] rounded-full flex items-center gap-2 transition-all cursor-pointer hover:bg-white/5"
@@ -150,6 +153,8 @@ export const Header: React.FC<HeaderProps> = ({ activePage, onNavigate }) => {
             </div>
 
             <div className="pt-3 border-t border-white/10 flex flex-col gap-2.5">
+              <InstallButton variant="drawer" onActionTriggered={() => setMobileMenuOpen(false)} />
+
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);

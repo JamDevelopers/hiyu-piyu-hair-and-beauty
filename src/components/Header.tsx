@@ -94,13 +94,13 @@ export const Header: React.FC<HeaderProps> = ({ activePage, onNavigate }) => {
             <span>WhatsApp</span>
           </button>
 
-          /*<button
+          <button
             onClick={() => handleNavClick('book')}
             className="px-5 py-2.5 text-xs font-bold tracking-wider uppercase text-[#241316] bg-gradient-to-r from-[#D5AA63] via-[#E9CB8A] to-[#D5AA63] hover:brightness-110 rounded-full shadow-[0_4px_16px_rgba(213,170,99,0.3)] transition-all flex items-center gap-2 cursor-pointer transform hover:scale-[1.02] active:scale-98"
           >
             <Calendar className="w-3.5 h-3.5 text-[#241316]" />
             <span>Book Appointment</span>
-          </button>*/
+          </button>
         </div>
 
         {/* Mobile Hamburger */}

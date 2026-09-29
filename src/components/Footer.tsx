@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MessageCircle, MapPin, ShieldCheck, Sparkles, Clock } from 'lucide-react';
+import { Phone, MessageCircle, MapPin, ShieldCheck, Sparkles, Clock, Award } from 'lucide-react';
 import { settings } from '../data/settings';
 import { openWhatsApp, callBusiness, getGeneralInquiryMessage } from '../utils/whatsapp';
 
@@ -35,6 +35,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <Sparkles className="w-3.5 h-3.5 text-amber-400" />
               <span>{settings.gujaratiTagline}</span>
             </div>
+            
           </div>
 
           {/* Column 2: Quick Links */}
@@ -146,6 +147,17 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   Vesu · Adajan · Pal · Althan · Citylight · Piplod · VIP Road · Ghod Dod Rd · Katargam · Varachha · Rander · Dumas Rd
                 </p>
               </div>
+              <div className="pt-1">
+              <a
+                href="https://womenclub.co.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-[#F1D79A] text-xs font-semibold border border-[#D8AA55]/40 transition-colors"
+              >
+                <Award className="w-3.5 h-3.5 text-[#D8AA55]" />
+                <span>Women Club Certified &amp; Working Member</span>
+              </a>
+            </div>
             </div>
           </div>
         </div>

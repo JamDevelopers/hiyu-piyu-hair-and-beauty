@@ -29,7 +29,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateToBooking }) => 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           <div className="md:col-span-7 space-y-4 text-stone-700 text-sm leading-relaxed">
             <p>
-              Welcome to <strong className="text-[#5B071B]">Hiyupiyu Hair & Beauty</strong> (હિયુપીયુ હેર એન્ડ બ્યુટી), a premier ladies-only mobile beauty business established in Surat by certified expert <strong className="text-[#5B071B]">Himanshi Patel</strong>.
+              Welcome to <strong className="text-[#4A0718]">Hiyupiyu Hair & Beauty</strong> (હિયુપીયુ હેર એન્ડ બ્યુટી), a premier ladies-only mobile beauty business established in Surat by certified expert <strong className="text-[#4A0718]">Himanshi Patel</strong>.
+            </p>
+            <p>
+              Himanshi Patel is an officially recognized <a href="https://womenclub.co.in/" target="_blank" rel="noopener noreferrer" className="text-[#8E1837] font-bold underline hover:text-[#4A0718]">Certified Member &amp; Working Member of Women Club (womenclub.co.in)</a>, upholding rigorous standards of professionalism, hygiene, and women empowerment in Surat's beauty and wellness sector.
             </p>
             <p>
               Our core mission is simple yet transformative: to bring the luxury, hygiene, and calming serenity of an elite salon directly to your doorstep. We recognize that modern women in Surat—whether managing busy careers, joint families, or young children—often find it exhausting to battle traffic and wait endlessly in crowded salons.
@@ -37,6 +40,32 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateToBooking }) => 
             <p>
               With Hiyupiyu, your home becomes your private spa sanctuary. You relax comfortably in your own space while Himanshi delivers unhurried, meticulous, and deeply soothing treatments.
             </p>
+            {/* Women Club Highlight Box */}
+            <div className="p-4 rounded-2xl bg-[#FFF7E9] border border-[#D5AA63]/60 flex items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#4A0718] text-[#E9CB8A] flex items-center justify-center font-bold text-sm shrink-0 border border-[#D5AA63]/50">
+                  <Award className="w-5 h-5 text-[#D5AA63]" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="font-serif font-bold text-stone-900 text-sm">
+                      Women Club Certified Member
+                    </span>
+                  </div>
+                  <span className="text-xs text-stone-600 block mt-0.5">
+                    Official accreditation at <strong className="text-[#4A0718]">womenclub.co.in</strong>
+                  </span>
+                </div>
+              </div>
+              <a
+                href="https://womenclub.co.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3.5 py-1.5 bg-[#4A0718] hover:bg-[#650A20] text-white text-xs font-bold rounded-xl whitespace-nowrap transition-colors shadow-xs"
+              >
+                Visit Club ↗
+              </a>
+            </div>
           </div>
 
           <div className="md:col-span-5 rounded-2xl overflow-hidden shadow-xl border-2 border-[#D8AA55]/40">

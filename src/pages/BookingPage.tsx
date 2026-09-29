@@ -41,6 +41,36 @@ export const BookingPage: React.FC<BookingPageProps> = ({
         initialPrice={initialPrice}
       />
 
+      {/* Women Club Credential Highlight */}
+      <div className="p-4 bg-[#FFF7E9] rounded-2xl border border-[#D5AA63]/50 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left shadow-xs">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-full bg-[#4A0718] text-[#E9CB8A] flex items-center justify-center font-bold text-sm shrink-0 border border-[#D5AA63]/40">
+            <ShieldCheck className="w-5 h-5 text-[#D5AA63]" />
+          </div>
+          <div>
+            <div className="flex items-center justify-center sm:justify-start gap-2">
+              <span className="font-serif font-bold text-stone-900 text-sm">
+                Certified &amp; Working Member of Women Club
+              </span>
+              <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full border border-emerald-300">
+                Verified
+              </span>
+            </div>
+            <p className="text-xs text-stone-600 mt-0.5">
+              Himanshi Patel holds official accreditation at <strong className="text-[#4A0718]">womenclub.co.in</strong> for verified excellence in doorstep beauty.
+            </p>
+          </div>
+        </div>
+        <a
+          href="https://womenclub.co.in/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-4 py-2 bg-white hover:bg-stone-50 text-[#4A0718] text-xs font-bold rounded-xl border border-[#D5AA63]/60 transition-colors shadow-2xs whitespace-nowrap cursor-pointer"
+        >
+          Verify at womenclub.co.in ↗
+        </a>
+      </div>
+
       {/* Trust & Policy Notes */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
         <div className="p-5 bg-white rounded-3xl border-2 border-[#D8AA55]/30 shadow-luxury-card text-left space-y-1.5">

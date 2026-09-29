@@ -208,6 +208,38 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </button>
               </motion.div>
 
+              {/* Women Club Certified & Working Member Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.95 }}
+                className="pt-2 flex justify-center lg:justify-start"
+              >
+                <a
+                  href="https://womenclub.co.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/95 border border-[#D5AA63]/50 shadow-sm hover:border-[#D5AA63] hover:shadow-md transition-all text-left"
+                >
+                  <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#4A0718] to-[#650A20] text-[#E9CB8A] flex items-center justify-center shrink-0 border border-[#D5AA63]/40 shadow-xs">
+                    <Award className="w-4 h-4 text-[#D5AA63]" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-bold text-stone-900 group-hover:text-[#4A0718] transition-colors">
+                        Himanshi Patel
+                      </span>
+                      <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full border border-emerald-300">
+                        Verified
+                      </span>
+                    </div>
+                    <span className="text-[11px] text-stone-600 block mt-0.5">
+                      <strong className="text-[#8E1837] font-semibold">Women Club</strong> Certified Member &amp; Working Member ↗
+                    </span>
+                  </div>
+                </a>
+              </motion.div>
+
               {/* Decorative Trust Line */}
               <motion.div
                 initial={{ opacity: 0 }}
@@ -315,8 +347,19 @@ export const HomePage: React.FC<HomePageProps> = ({
             </h2>
             <div className="w-16 h-0.5 bg-gradient-to-r from-[#D5AA63] to-transparent" />
             <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
-              We bring the tranquil sanctuary and exacting standards of a luxury beauty lounge straight into your home. Led by certified expert Himanshi Patel, every ritual is unhurried, private, and tailored to celebrate your natural glow.
+              We bring the tranquil sanctuary and exacting standards of a luxury beauty lounge straight into your home. Led by certified expert Himanshi Patel—an accredited Certified &amp; Working Member of <a href="https://womenclub.co.in/" target="_blank" rel="noopener noreferrer" className="text-[#8E1837] font-semibold underline hover:text-[#4A0718]">Women Club</a>—every ritual is unhurried, private, and tailored to celebrate your natural glow.
             </p>
+            <div className="pt-1">
+              <a
+                href="https://womenclub.co.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFF7E9] border border-[#D5AA63]/50 text-xs text-[#4A0718] font-bold hover:bg-[#D5AA63]/20 transition-all shadow-xs"
+              >
+                <Award className="w-3.5 h-3.5 text-[#D5AA63]" />
+                <span>womenclub.co.in • Certified &amp; Working Member ↗</span>
+              </a>
+            </div>
           </div>
 
           {/* Right: Four Elegant Vertical Trust Items (NO generic white cards) */}

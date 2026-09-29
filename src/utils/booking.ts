@@ -1,7 +1,16 @@
 import { getWhatsAppUrl, openWhatsApp } from './whatsapp';
 
+export interface SelectedServiceItem {
+  id?: string;
+  name: string;
+  price: number;
+  duration?: number;
+}
+
 export interface BookingPayload {
   serviceName: string;
+  selectedServices?: SelectedServiceItem[];
+  totalDuration?: number;
   name: string;
   mobile: string;
   date: string;
@@ -35,6 +44,14 @@ export function buildBookingWhatsAppMessage(payload: BookingPayload, reference: 
   const notesSection = payload.notes?.trim() ? `Notes: ${payload.notes.trim()}\n` : '';
   const discountSection = payload.discount > 0 ? `Promo Code: ${payload.promoCode || 'Applied'}\nDiscount: ₹${payload.discount}\n` : '';
 
+  let servicesText = `Service: ${payload.serviceName}`;
+  if (payload.selectedServices && payload.selectedServices.length > 1) {
+    const list = payload.selectedServices
+      .map((s, idx) => `  ${idx + 1}. ${s.name} (₹${s.price}${s.duration ? ` · ${s.duration}m` : ''})`)
+      .join('\n');
+    servicesText = `Selected Services (${payload.selectedServices.length}):\n${list}\nTotal Estimated Duration: ~${payload.totalDuration || '—'} mins`;
+  }
+
   return `Hello Hiyupiyu Hair & Beauty,
 
 I would like to book a home beauty appointment.
@@ -44,14 +61,13 @@ Booking Reference: ${reference}
 Name: ${payload.name.trim()}
 Mobile: ${payload.mobile.trim()}
 
-Service: ${payload.serviceName}
+${servicesText}
 Date: ${payload.date}
 Preferred Time: ${payload.timeSlot}
 
 Area: ${payload.area}
 Address: ${payload.address.trim()}
-${notesSection}
-Subtotal: ₹${payload.subtotal}
+${notesSection}Subtotal: ₹${payload.subtotal}
 ${discountSection}Estimated Total: ₹${payload.estimatedTotal}
 
 Please check availability and confirm my appointment.

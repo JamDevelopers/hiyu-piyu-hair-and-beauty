@@ -12,6 +12,12 @@ export interface BusinessSettings {
   gujaratiServiceType: string;
   timing: string;
   coverageAreas: string[];
+  womenClub: {
+    title: string;
+    url: string;
+    organization: string;
+    description: string;
+  };
   trustBadges: {
     title: string;
     description: string;
@@ -50,6 +56,12 @@ export const settings: BusinessSettings = {
     "Athwa Lines",
     "Palanpur Canal Road"
   ],
+  womenClub: {
+    title: "Certified & Working Member",
+    organization: "Women Club",
+    url: "https://womenclub.co.in/",
+    description: "Himanshi Patel is a verified Certified Member and active Working Member of Women Club (womenclub.co.in), recognized for excellence in ladies' professional home wellness and beauty."
+  },
   trustBadges: [
     {
       title: "Ladies Only & 100% Safe",

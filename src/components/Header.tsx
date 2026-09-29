@@ -54,7 +54,7 @@ export const Header: React.FC<HeaderProps> = ({ activePage, onNavigate }) => {
           className="text-left group cursor-pointer focus:outline-none flex items-center gap-3"
         >
           <div>
-            <span className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-white group-hover:text-[#E9CB8A] transition-colors block leading-none">
+            <span className="font-script text-2xl sm:text-3xl font-bold tracking-tight text-white group-hover:text-[#E9CB8A] transition-colors block leading-none">
               Hiyupiyu <span className="font-script font-normal text-2xl sm:text-3xl text-[#E9CB8A] ml-1">Hair & Beauty</span>
             </span>
             <span className="text-[10px] tracking-[0.25em] uppercase text-[#D5AA63] font-semibold block mt-1">

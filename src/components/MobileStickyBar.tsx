@@ -53,7 +53,7 @@ export const MobileStickyBar: React.FC<MobileStickyBarProps> = ({ onNavigate, ac
           }`}
         >
           <ReceiptIndianRupee className="w-4 h-4 mb-0.5 text-[#D5AA63]" />
-          <span>OFFERS</span>
+          <span>Offers</span>
         </button>
 
         {/* 4. Book */}

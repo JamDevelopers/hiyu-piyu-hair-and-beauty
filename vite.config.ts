@@ -15,7 +15,7 @@ export default defineConfig(() => {
         manifest: {
           id: '/',
           name: 'Hiyupiyu Hair & Beauty',
-          short_name: 'Hiyupiyu Hair & Beauty',
+          short_name: 'Hiyupiyu',
           description: 'Premium ladies-only home beauty services in Surat.',
           lang: 'en-IN',
           start_url: '/',

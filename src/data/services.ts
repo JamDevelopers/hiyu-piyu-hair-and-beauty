@@ -506,7 +506,7 @@ export const services: Service[] = [
     popularTag: "Only ₹100",
     imageUrl: "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=80"
   },
-  {
+  /*{
     id: "hair-highlights",
     name: "Highlights",
     gujaratiName: "હાઈ લાઈટ",
@@ -530,7 +530,7 @@ export const services: Service[] = [
     active: true,
     popularTag: "Start from ₹500",
     imageUrl: "https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=800&q=80"
-  },
+  },*/
   {
     id: "hair-colour",
     name: "Hair Colour",
@@ -556,7 +556,7 @@ export const services: Service[] = [
     popularTag: "Start from ₹400",
     imageUrl: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=800&q=80"
   },
-  {
+  /*{
     id: "permanent-straightening",
     name: "Permanent Hair Straightening & Smoothing",
     gujaratiName: "પરમેનન્ટ હેર સ્ટ્રેટનિંગ અને સ્મૂથનિંગ",
@@ -581,7 +581,7 @@ export const services: Service[] = [
     active: true,
     popularTag: "Start from ₹1,500",
     imageUrl: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80"
-  },
+  },*/
 
   // ==========================================
   // 6. THREADING (આઇબ્રો અને અપર લિપ્સ)

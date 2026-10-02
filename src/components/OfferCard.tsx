@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Sparkles, Calendar, MessageCircle, Check, Tag, Copy, CheckCheck } from 'lucide-react';
+import { Sparkles, Calendar, MessageCircle, Check, Tag, Copy, CheckCheck, Clock, ShieldCheck } from 'lucide-react';
 import { Offer } from '../data/offers';
 import { openWhatsApp, getOfferInquiryMessage } from '../utils/whatsapp';
 
@@ -27,7 +27,7 @@ export const OfferCard: React.FC<OfferCardProps> = ({ offer, onBookOffer }) => {
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className={`group relative bg-[#FEFCF7] rounded-3xl border ${
         offer.popular
-          ? 'border-[#D5AA63] shadow-[0_20px_45px_-15px_rgba(213,170,99,0.25)] ring-1 ring-[#D5AA63]/30'
+          ? 'border-[#D5AA63] shadow-[0_20px_45px_-15px_rgba(213,170,99,0.25)] ring-1 ring-[#D5AA63]/40'
           : 'border-[#D5AA63]/30 shadow-[0_15px_35px_-15px_rgba(74,7,24,0.08)]'
       } flex flex-col justify-between overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_25px_50px_-15px_rgba(74,7,24,0.15)]`}
     >
@@ -44,20 +44,33 @@ export const OfferCard: React.FC<OfferCardProps> = ({ offer, onBookOffer }) => {
             loading="lazy"
             className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#241316]/80 via-[#241316]/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#241316]/85 via-[#241316]/30 to-transparent" />
 
-          {/* Top Badge */}
-          <div className="absolute top-4 left-4 z-10">
-            <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#241316] flex items-center gap-1.5 bg-gradient-to-r from-[#D5AA63] via-[#E9CB8A] to-[#D5AA63] px-3.5 py-1.5 rounded-full shadow-md">
+          {/* Top Left Package Code & Badge */}
+          <div className="absolute top-4 left-4 z-10 flex flex-wrap items-center gap-2">
+            {offer.packageCode && (
+              <span className="text-[11px] font-mono font-bold tracking-wider uppercase text-white bg-[#650A20]/95 px-3 py-1 rounded-full border border-[#D5AA63]/50 shadow-md">
+                {offer.packageCode}
+              </span>
+            )}
+            <span className="text-xs font-bold tracking-[0.15em] uppercase text-[#241316] flex items-center gap-1.5 bg-gradient-to-r from-[#D5AA63] via-[#E9CB8A] to-[#D5AA63] px-3.5 py-1 rounded-full shadow-md">
               <Sparkles className="w-3.5 h-3.5 text-[#241316]" />
               <span>{offer.badge}</span>
             </span>
           </div>
 
-          {/* Validity & Savings Pill */}
+          {/* Category Tag Top Right */}
+          <div className="absolute top-4 right-4 z-10">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-[#E9CB8A] bg-[#241316]/80 backdrop-blur-xs px-2.5 py-1 rounded-md border border-[#D5AA63]/30">
+              {offer.category}
+            </span>
+          </div>
+
+          {/* Validity & Advance Notice Pill */}
           <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white text-xs z-10">
-            <span className="text-[11px] text-[#E9CB8A] bg-[#241316]/80 backdrop-blur-xs px-3 py-1 rounded-full border border-[#D5AA63]/40">
-              Valid: {offer.validUntil}
+            <span className="text-[11px] text-[#E9CB8A] bg-[#241316]/90 backdrop-blur-xs px-3 py-1 rounded-full border border-[#D5AA63]/40 flex items-center gap-1.5">
+              <Clock className="w-3 h-3 text-[#D5AA63]" />
+              <span>Book 2-3 Days Ahead</span>
             </span>
             <span className="text-xs font-bold text-white bg-emerald-700/90 backdrop-blur-xs px-3 py-1 rounded-full border border-emerald-400/40">
               Save ₹{offer.savings}
@@ -67,16 +80,20 @@ export const OfferCard: React.FC<OfferCardProps> = ({ offer, onBookOffer }) => {
       )}
 
       {/* Card Content Body */}
-      <div className="p-7 sm:p-8 flex-1 flex flex-col justify-between">
+      <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
         <div>
-          <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#241316] leading-tight">
-            {offer.title}
-          </h3>
-          {offer.gujaratiTitle && (
-            <p className="font-serif text-sm text-[#8E1837] italic mt-1 font-semibold">
-              {offer.gujaratiTitle}
-            </p>
-          )}
+          <div className="flex items-start justify-between gap-2">
+            <div>
+              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#241316] leading-tight">
+                {offer.title}
+              </h3>
+              {offer.gujaratiTitle && (
+                <p className="font-serif text-sm text-[#8E1837] italic mt-1 font-semibold">
+                  {offer.gujaratiTitle}
+                </p>
+              )}
+            </div>
+          </div>
 
           <p className="text-stone-500 text-xs italic font-serif mt-2">
             "{offer.tagline}"
@@ -86,12 +103,44 @@ export const OfferCard: React.FC<OfferCardProps> = ({ offer, onBookOffer }) => {
             {offer.description}
           </p>
 
+          {/* Included Services List */}
+          <div className="mt-5 space-y-2">
+            <span className="text-[11px] uppercase tracking-[0.18em] text-[#650A20] font-bold block">
+              SERVICES INCLUDED IN COMBO:
+            </span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {offer.includedServices.map((item, i) => (
+                <div key={i} className="flex items-center gap-2 text-xs text-stone-800 bg-[#FFF7E9]/70 px-2.5 py-1.5 rounded-lg border border-[#D5AA63]/25">
+                  <Check className="w-3.5 h-3.5 text-[#D5AA63] shrink-0" />
+                  <span className="font-medium">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Key Benefits if available */}
+          {offer.benefits && offer.benefits.length > 0 && (
+            <div className="mt-4 pt-3 border-t border-stone-100">
+              <span className="text-[10px] uppercase tracking-wider text-stone-500 font-bold block mb-1.5">
+                KEY BENEFITS:
+              </span>
+              <div className="space-y-1">
+                {offer.benefits.map((b, idx) => (
+                  <p key={idx} className="text-xs text-stone-600 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#D5AA63]" />
+                    <span>{b}</span>
+                  </p>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Promo Code Badge */}
-          <div className="mt-5 p-3.5 rounded-2xl bg-[#FFF7E9] border border-[#D5AA63]/40 flex items-center justify-between">
+          <div className="mt-5 p-3 rounded-2xl bg-[#FFFDF9] border border-[#D5AA63]/30 flex items-center justify-between">
             <div className="flex items-center gap-2.5">
               <Tag className="w-4 h-4 text-[#4A0718]" />
               <div>
-                <span className="text-[10px] uppercase font-bold text-stone-500 tracking-wider block">Promo Code</span>
+                <span className="text-[10px] uppercase font-bold text-stone-500 tracking-wider block">Use Promo Code</span>
                 <span className="font-mono text-sm font-bold text-[#4A0718] tracking-wider">{sampleCode}</span>
               </div>
             </div>
@@ -112,19 +161,6 @@ export const OfferCard: React.FC<OfferCardProps> = ({ offer, onBookOffer }) => {
                 </>
               )}
             </button>
-          </div>
-
-          {/* Included Services List */}
-          <div className="mt-5 space-y-2">
-            <span className="text-[11px] uppercase tracking-[0.18em] text-stone-400 font-semibold block">Included in Package</span>
-            <div className="space-y-1.5">
-              {offer.includedServices.map((item, i) => (
-                <div key={i} className="flex items-center gap-2 text-xs text-stone-700">
-                  <Check className="w-3.5 h-3.5 text-[#D5AA63] shrink-0" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
 

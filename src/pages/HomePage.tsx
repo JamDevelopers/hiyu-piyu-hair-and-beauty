@@ -29,6 +29,7 @@ import { faqs } from '../data/faqs';
 import { galleryItems } from '../data/gallery';
 import { ServiceCard } from '../components/ServiceCard';
 import { OfferCard } from '../components/OfferCard';
+import { PriceListTable } from '../components/PriceListTable';
 import { openWhatsApp, callBusiness, getGeneralInquiryMessage, getServiceInquiryMessage } from '../utils/whatsapp';
 
 interface HomePageProps {
@@ -583,7 +584,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             onClick={() => onNavigate('services')}
             className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A0718] hover:text-[#650A20] flex items-center gap-2 cursor-pointer transition-colors whitespace-nowrap"
           >
-            <span>Explore All 15 Services</span>
+            <span>Explore All {services.length} Services</span>
             <ArrowRight className="w-4 h-4 text-[#D5AA63]" />
           </button>
         </div>
@@ -786,19 +787,19 @@ export const HomePage: React.FC<HomePageProps> = ({
       </section>
 
       {/* ============================================================ */}
-      {/* 6. SPECIAL OFFERS: Two Large Promotional Storytelling Cards */}
+      {/* 6. SPECIAL OFFERS: Navratri & Luxury Healing Packages */}
       {/* ============================================================ */}
       <section className="py-20 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-6 border-b border-[#D5AA63]/25 pb-6">
           <div className="space-y-2">
             <span className="text-xs uppercase tracking-[0.25em] text-[#D5AA63] font-bold block">
-              SPECIAL OFFERS
+              FESTIVE &amp; SIGNATURE OFFERS
             </span>
             <h2 className="font-serif text-4xl sm:text-6xl font-bold text-[#241316]">
-              Little Luxuries, Made More Special.
+              Festive Glow &amp; Healing Combos
             </h2>
             <p className="text-stone-600 text-sm max-w-xl">
-              Curated head-to-toe makeover packages with exclusive savings for women in Surat.
+              Limited-time Navratri Garba glow bundles, authentic Tibetan sound bowl therapies, and signature crystal chakra packages.
             </p>
           </div>
 
@@ -806,14 +807,14 @@ export const HomePage: React.FC<HomePageProps> = ({
             onClick={() => onNavigate('offers')}
             className="text-xs font-bold uppercase tracking-[0.2em] text-[#4A0718] hover:text-[#650A20] flex items-center gap-2 cursor-pointer transition-colors"
           >
-            <span>View All Packages</span>
+            <span>View All {offers.length} Packages</span>
             <ArrowRight className="w-4 h-4 text-[#D5AA63]" />
           </button>
         </div>
 
-        {/* Two Large Promotional Compositions */}
+        {/* Featured Festive & Healing Offers Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-          {offers.slice(0, 2).map((offer) => (
+          {offers.slice(0, 4).map((offer) => (
             <OfferCard
               key={offer.id}
               offer={offer}
@@ -821,6 +822,18 @@ export const HomePage: React.FC<HomePageProps> = ({
             />
           ))}
         </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 6B. OFFICIAL PRICE LIST POSTER & TABLE */}
+      {/* ============================================================ */}
+      <section className="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <PriceListTable
+          onBookService={(serviceId) => {
+            const found = services.find((s) => s.id === serviceId);
+            if (found) onBookService(found);
+          }}
+        />
       </section>
 
       {/* ============================================================ */}

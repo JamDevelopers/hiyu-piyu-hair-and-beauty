@@ -2,7 +2,7 @@ export interface Service {
   id: string;
   name: string;
   gujaratiName: string;
-  category: 'Facial' | 'Hair' | 'Waxing' | 'Hands & Feet' | 'Body Care' | 'Premium Services';
+  category: 'Luxury Healing & Body' | 'Facials & Skin Glow' | 'Waxing Care' | 'Hands & Feet' | 'Hair Rituals' | 'Threading';
   price: number;
   originalPrice?: number;
   duration: number; // in minutes
@@ -13,472 +13,625 @@ export interface Service {
   featured?: boolean;
   active: boolean;
   popularTag?: string;
-  visualTheme: 'facial' | 'chakra' | 'hair' | 'wax' | 'nails' | 'body' | 'glow';
+  startingPrice?: boolean;
   imageUrl: string;
+  visualTheme?: 'chakra' | 'facial' | 'hair' | 'wax' | 'nails' | 'body' | 'glow' | 'setup';
 }
 
+export const serviceCategories = [
+  'All',
+  'Luxury Healing & Body',
+  'Facials & Skin Glow',
+  'Waxing Care',
+  'Hands & Feet',
+  'Hair Rituals',
+  'Threading'
+] as const;
+
 export const services: Service[] = [
-  // --- PREMIUM & SIGNATURE SERVICES ---
+  // ==========================================
+  // 1. LUXURY HEALING & BODY (પ્રીમિયમ બોડી અને સ્કીન સર્વિસ)
+  // ==========================================
   {
     id: "7-chakra-facial",
     name: "7 Chakra Facial",
-    gujaratiName: "7 ચક્રા ફેશિયલ",
-    category: "Premium Services",
+    gujaratiName: "૭ ચક્રા ફેશિયલ",
+    category: "Luxury Healing & Body",
     price: 1500,
-    originalPrice: 1900,
+    originalPrice: 2000,
     duration: 75,
-    description: "Our signature luxury wellness ritual. Balances facial energy vortexes using organic gemstone extracts, botanical pressure massage, and aura alignment for profound inner serenity and luminous skin glow.",
-    gujaratiDescription: "ચહેરાના એનર્જી પોઈન્ટ્સને બેલેન્સ કરતું આયુર્વેદિક અને જેડ સ્ટોન યુક્ત રિલેક્સિંગ પ્રીમિયમ ફેશિયલ.",
+    description: "Our signature holistic energy healing facial aligning your 7 bodily chakras using authentic gemstone crystal stones, botanical serums, and gentle acupressure for inner calm and radiant skin.",
+    gujaratiDescription: "ચહેરાના એનર્જી પોઈન્ટ્સને બેલેન્સ કરતું કુદરતી જેમસ્ટોન અને ચક્રા બેલેન્સિંગ પ્રીમિયમ ફેશિયલ.",
     benefits: [
-      "Deep vibrational relaxation and stress release",
-      "Cellular energy activation for lasting radiance",
-      "Lymphatic drainage with cooling gemstone tools",
-      "Detoxifies and clarifies tired skin"
+      "Balances 7 body chakra energy centers",
+      "Lymphatic drainage with cooling gemstone crystals",
+      "Deep vibrational calm & radiant luminous skin",
+      "Reduces tension lines, headaches, and mental stress"
     ],
     includes: [
-      "Aromatherapy inhalation & welcome mist",
-      "7 Chakra herbal cleansing & gentle micro-polish",
-      "Vedic energy pressure point acupressure",
-      "Cooling jade & rose quartz stone roller",
-      "Luminescent gold algae peel-off mask"
+      "Chakra energy assessment & breathing ritual",
+      "Botanical milk cleanse & gentle micro-polish",
+      "7 Chakra crystal placement and energy alignment",
+      "Rose quartz & jade acupressure facial massage",
+      "Luminescent gold radiance peel-off mask"
     ],
     featured: true,
     active: true,
-    popularTag: "Signature Best Seller",
-    visualTheme: "chakra",
+    popularTag: "Signature Healing • ₹1,500",
     imageUrl: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: "sound-therapy-facial",
     name: "Sound Therapy Facial",
     gujaratiName: "સાઉન્ડ થેરાપી ફેશિયલ",
-    category: "Premium Services",
-    price: 1650,
-    originalPrice: 2100,
-    duration: 80,
-    description: "An extraordinary holistic session merging rhythmic acoustic singing bowl resonance with deeply nourishing peptide hydration for ultimate mental calm and youthful skin tone.",
-    gujaratiDescription: "તિબેટીયન સાઉન્ડ બોલ્સની મધુર ધ્વનિ સાથે માઈન્ડ રિલેક્સેશન અને ગ્લોઇંગ સ્કિન ફેશિયલ.",
+    category: "Luxury Healing & Body",
+    price: 1300,
+    originalPrice: 1999,
+    duration: 70,
+    description: "Holistic acoustic healing session merging authentic Tibetan singing bowl sound vibrations with deep facial hydration to dissolve cellular stress, improve sleep, and awaken a natural glow.",
+    gujaratiDescription: "તિબેટીયન સાઉન્ડ બોલ્સની મધુર ધ્વનિ તરંગો સાથે ડીપ રિલેક્સેશન અને નેચરલ ગ્લો ફેશિયલ.",
     benefits: [
-      "Calms nervous system and reduces facial tension lines",
-      "Enhances transdermal serum absorption via acoustic waves",
-      "Increases collagen elasticity and suppleness"
+      "Sound vibrations melt away nervous exhaustion & anxiety",
+      "Promotes deep restorative sleep and peace of mind",
+      "Stimulates cellular regeneration & natural glow",
+      "Harmonizes mind and balances body energy field"
     ],
     includes: [
-      "Tibetan bowl sound frequency prelude",
-      "Triple botanical cleanse & gentle enzyme peel",
-      "Hydrating botanical serum massage",
-      "Deep relaxation acoustic mask interval"
+      "Tibetan acoustic singing bowl frequency prelude",
+      "Triple botanical herbal cleanse",
+      "Rhythmic sound wave facial acupressure",
+      "Deep moisture peptide hydration pack",
+      "Harmonic sound bowl closing ritual"
     ],
     featured: true,
     active: true,
-    popularTag: "Exclusive Luxury",
-    visualTheme: "chakra",
+    popularTag: "Sound Wave Therapy • ₹1,300",
     imageUrl: "https://images.unsplash.com/photo-1512290900672-1f4164eb34a5?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: "stone-eye-mask",
-    name: "Stone Eye Mask Therapy",
-    gujaratiName: "સ્ટોન આઈ માસ્ક થેરાપી",
-    category: "Premium Services",
-    price: 600,
-    originalPrice: 850,
-    duration: 35,
-    description: "Specialized cold-pressed amethyst and jade mineral eye treatment targeting dark circles, screen fatigue, puffiness, and fine crow's feet lines.",
-    gujaratiDescription: "આંખોના થાક, ડાર્ક સર્કલ અને સોજા દૂર કરવા માટે ખાસ કુદરતી સ્ટોન આઈ માસ્ક.",
+    name: "Stone Eye Mask Facial",
+    gujaratiName: "સ્ટોન આઈ માસ્ક",
+    category: "Luxury Healing & Body",
+    price: 1200,
+    originalPrice: 1500,
+    duration: 45,
+    description: "Luxurious amethyst & crystal gemstone weighted eye mask ritual that drains sinus puffiness, reduces dark circles, cools tired strained eyes, and induces restorative sleep.",
+    gujaratiDescription: "આંખોના થાક, સોજા અને ડાર્ક સર્કલ દૂર કરતું કૂલિંગ ક્રિસ્ટલ સ્ટોન આઈ માસ્ક.",
     benefits: [
-      "Instantly drains fluid retention and reduces puffiness",
-      "Soothes tired eyes caused by screen time and sleeplessness",
-      "Firms delicate under-eye contours"
+      "Cools and refreshes screen-fatigued tired eyes",
+      "Removes fluid retention and morning puffiness",
+      "Fades stubborn dark circles & crow's feet lines",
+      "Relaxes eye muscles for peaceful sound sleep"
     ],
     includes: [
-      "Cucumber & rose cooling compress",
-      "Gentle acupressure eye massage with almond serum",
-      "Weighted natural cooling jade stone eye blanket"
-    ],
-    featured: false,
-    active: true,
-    visualTheme: "facial",
-    imageUrl: "https://images.unsplash.com/photo-1512290900672-1f4164eb34a5?auto=format&fit=crop&w=800&q=80"
-  },
-
-  // --- FACIALS ---
-  {
-    id: "all-type-facial",
-    name: "Custom Classic Glow Facial",
-    gujaratiName: "ઓલ ટાઇપ ફેશિયલ (કસ્ટમ ગ્લો)",
-    category: "Facial",
-    price: 900,
-    originalPrice: 1200,
-    duration: 60,
-    description: "Personalized skin cleansing and massage therapy tailored precisely to your skin type—dry, oily, combination, or sensitive.",
-    gujaratiDescription: "તમારી સ્કિન ટાઈપ મુજબ ઊંડાણપૂર્વક ક્લીન્સિંગ અને મોઈશ્ચરાઈઝિંગ કરતું ફ્રેશ ગ્લો ફેશિયલ.",
-    benefits: [
-      "Cleanses deep pores and dissolves blackheads",
-      "Restores natural moisture barrier",
-      "Smooth, supple and refreshed look"
-    ],
-    includes: [
-      "Deep cleansing with herbal milk",
-      "Steam & gentle vacuum / scrubber exfoliation",
-      "15-minute relaxing facial and neck massage",
-      "Nourishing skin pack & SPF finish"
+      "Cooling rose petal compress & herbal eye mist",
+      "Almond & caffeine serum orbital massage",
+      "Natural weighted amethyst crystal gemstone eye mask",
+      "Gentle temple and forehead acupressure"
     ],
     featured: true,
     active: true,
-    popularTag: "Popular",
-    visualTheme: "facial",
+    popularTag: "Crystal Therapy • ₹1,200",
     imageUrl: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80"
   },
   {
-    id: "o3-bridal-glow-facial",
-    name: "O3+ Radiant Bridal Glow Facial",
-    gujaratiName: "O3+ બ્રાઇડલ ગ્લો ફેશિયલ",
-    category: "Facial",
-    price: 1800,
-    originalPrice: 2400,
-    duration: 75,
-    description: "Professional medical-grade brightening facial infused with active oxygen molecules, niacinamide, and gold pigments for show-stopping bridal luminescence.",
-    gujaratiDescription: "લગ્ન પ્રસંગ અને તહેવારો માટે સ્પેશિયલ હાઇ-એન્ડ O3+ વ્હાઇટનિંગ અને ગ્લો ટ્રીટમેન્ટ.",
-    benefits: [
-      "Intensive tan removal and skin tone evening",
-      "3D radiant glass skin glow",
-      "Diminishes pigmentation and blemishes"
-    ],
-    includes: [
-      "O3+ brightening cleanaur & micro-dermabrasion scrub",
-      "Oxygen whitening ampoule serum infusion",
-      "Pure gold sheet booster mask",
-      "Cooling hydration lock finish"
-    ],
-    featured: true,
-    active: true,
-    popularTag: "Bridal Favorite",
-    visualTheme: "glow",
-    imageUrl: "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: "lotus-herbal-tan-clear",
-    name: "Lotus Herbal Tan-Clear Facial",
-    gujaratiName: "લોટસ હર્બલ ડી-ટેન ફેશિયલ",
-    category: "Facial",
-    price: 1100,
-    originalPrice: 1400,
-    duration: 60,
-    description: "Natural Ayurvedic tan removal facial enriched with liquorice, mulberry, and papaya enzymes that gently lift stubborn sun tan and pollution dullness.",
-    gujaratiDescription: "સૂર્યના તડકા અને પ્રદૂષણથી થયેલ કાળાશ દૂર કરતું શુદ્ધ હર્બલ ડી-ટેન ફેશિયલ.",
-    benefits: [
-      "Reverses sun damage and pigmentation",
-      "Cooling, anti-inflammatory effect",
-      "Lightens dark spots naturally"
-    ],
-    includes: [
-      "Papaya enzyme deep exfoliation",
-      "De-tan eucalyptus herbal wrap",
-      "Sandalwood cooling massage cream",
-      "Clay clarifying tan pack"
-    ],
-    featured: false,
-    active: true,
-    visualTheme: "facial",
-    imageUrl: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80"
-  },
-
-  // --- HAIR SERVICES ---
-  {
-    id: "loreal-hair-spa",
-    name: "L'Oréal Deep Nourishing Hair Spa",
-    gujaratiName: "હેર સ્પા (ડીપ નરિશિંગ)",
-    category: "Hair",
-    price: 950,
+    id: "oil-body-massage",
+    name: "Oil Body Massage",
+    gujaratiName: "ઓઈલ બોડી મસાજ",
+    category: "Luxury Healing & Body",
+    price: 899,
     originalPrice: 1300,
     duration: 60,
-    description: "Intense moisture and protein therapy for dry, frizzy, chemical-treated, or rough hair. Includes steam therapy and a 20-minute rhythmic head and shoulder massage.",
-    gujaratiDescription: "વાળને રેશમી, ચમકદાર અને મુલાયમ બનાવતું સ્પેશિયલ હેર સ્પા અને હેડ મસાજ.",
+    description: "Soothing full-body warm herbal oil massage delivered in the total privacy and comfort of your home by licensed expert Himanshi Patel to melt fatigue, joint soreness, and stress.",
+    gujaratiDescription: "ગરમ આયુર્વેદિક ઓઈલ સાથે થાક અને દર્દ દૂર કરતી પૂર્ણ બોડી મસાજ.",
     benefits: [
-      "Controls frizz and deeply conditions split ends",
-      "Stimulates scalp blood flow and supports hair strength",
-      "Unbelievable silky shine and easy manageability"
+      "Relieves stiff back, neck, and shoulder muscle knots",
+      "Boosts blood circulation and eases body fatigue",
+      "Deeply moisturizes dry, depleted skin tissue",
+      "Strictly ladies only in complete home privacy"
     ],
     includes: [
-      "Scalp diagnosis & clarifying wash",
-      "Protein concentrate cream application",
-      "Ionic hair steaming",
-      "Deep stress-relief neck & shoulder massage",
-      "Velvet serum finish"
+      "Warm sesame & almond herbal oil blend",
+      "Targeted back, shoulders, arms & leg massage",
+      "Gentle acupressure spine alignment strokes",
+      "Warm sanitized towel compress"
     ],
     featured: true,
     active: true,
-    popularTag: "Must Try",
-    visualTheme: "hair",
-    imageUrl: "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: "permanent-hair-straightening",
-    name: "Permanent Hair Straightening & Smoothing",
-    gujaratiName: "હેર સ્ટ્રેટનિંગ અને સ્મૂધનિંગ",
-    category: "Hair",
-    price: 3500,
-    originalPrice: 4800,
-    duration: 180,
-    description: "Transform curly, wavy, or unruly tresses into glass-smooth, poker-straight perfection with long-lasting structural bond restructuring and zero damage formulas.",
-    gujaratiDescription: "વાળને કાયમી રેશમી, સીધા અને આકર્ષક બનાવતી પ્રોફેશનલ સ્મૂધનિંગ ટ્રીટમેન્ટ.",
-    benefits: [
-      "Straight, manageable, wash-and-go hair for months",
-      "Eliminates 95% of frizz and humidity puffiness",
-      "Mirror-like gloss and softness"
-    ],
-    includes: [
-      "Pre-treatment protein filler",
-      "Precision straightening cream application",
-      "Ceramic heat sealing",
-      "Neutralizing mask & post-care shine gloss"
-    ],
-    featured: true,
-    active: true,
-    visualTheme: "hair",
-    imageUrl: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: "hair-cut-styling",
-    name: "Precision Hair Cut & Blowdry Styling",
-    gujaratiName: "હેર કટ અને બ્લોડ્રાય સ્ટાઇલિંગ",
-    category: "Hair",
-    price: 450,
-    originalPrice: 600,
-    duration: 40,
-    description: "Bespoke haircut customized to flatter your face shape—layers, feather, step cut, blunt bob, or split-end cleanup with volume blow-dry.",
-    gujaratiDescription: "ફેસ શેપ અનુસાર લેયર્સ, સ્ટેપ અથવા ફેધર કટ સાથે પ્રોફેશનલ બ્લોડ્રાય.",
-    benefits: [
-      "Removes split ends while preserving your desired length",
-      "Adds bounce, volume, and movement",
-      "Effortless daily styling"
-    ],
-    includes: [
-      "Style consultation",
-      "Wet sectioning & precision cut",
-      "Thermal round-brush blowdry"
-    ],
-    featured: false,
-    active: true,
-    visualTheme: "hair",
-    imageUrl: "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: "highlights-hair-colour",
-    name: "Global Hair Colour & Highlights",
-    gujaratiName: "ગ્લોબલ હેર કલર અને હાઇલાઇટ્સ",
-    category: "Hair",
-    price: 1800,
-    originalPrice: 2400,
-    duration: 120,
-    description: "Ammonia-free rich shades—warm chocolate, caramel balayage, honey blonde streaks, or 100% grey root coverage with luminous conditioning gloss.",
-    gujaratiDescription: "વાળને સુંદર લુક આપવા માટે પ્રીમિયમ હાઇલાઇટ્સ અથવા ગ્રે હેર કવરેજ કલર.",
-    benefits: [
-      "100% grey coverage with non-damaging organic oils",
-      "Multi-dimensional salon depth and vibrant shimmer",
-      "Long-lasting fade-resistant shine"
-    ],
-    includes: [
-      "Shade matching consultation",
-      "Precision foil highlight placement or global application",
-      "Post-color acidic shine rinse & conditioning pack"
-    ],
-    featured: false,
-    active: true,
-    visualTheme: "hair",
-    imageUrl: "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=800&q=80"
-  },
-
-  // --- WAXING SERVICES ---
-  {
-    id: "full-body-wax",
-    name: "Full Body Waxing (Rica / Honey)",
-    gujaratiName: "ફુલ બોડી વેક્સ (રીકા / હની)",
-    category: "Waxing",
-    price: 1350,
-    originalPrice: 1750,
-    duration: 70,
-    description: "Smooth, hygienic, and nearly painless full-body waxing done with disposable hygiene sheets, pre-wax sanitization, and soothing post-wax chamomile lotion.",
-    gujaratiDescription: "સંપૂર્ણ હાઇજીનિક, ડિસ્પોઝેબલ કીટ સાથે સ્મૂધ અને ક્લીન ફુલ બોડી વેક્સિંગ.",
-    benefits: [
-      "Leaves skin silky smooth for up to 4 weeks",
-      "Gradually slows down and thins hair regrowth",
-      "Gently exfoliates dead epidermal surface cells"
-    ],
-    includes: [
-      "Full arms, full legs, underarms & stomach/back line",
-      "Pre-wax soothing cooling powder",
-      "Gentle temperature-controlled wax",
-      "Post-wax soothing tea-tree lotion"
-    ],
-    featured: true,
-    active: true,
-    popularTag: "Home Favorite",
-    visualTheme: "wax",
-    imageUrl: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: "arms-legs-underarms-wax",
-    name: "Arms, Legs & Underarms Wax Combo",
-    gujaratiName: "હાથ, પગ અને અન્ડરઆર્મ્સ વેક્સ",
-    category: "Waxing",
-    price: 750,
-    originalPrice: 1000,
-    duration: 45,
-    description: "Quick, neat, and gentle waxing for limbs and underarms using skin-friendly non-sticky herbal wax formulas.",
-    gujaratiDescription: "નિયમિત સંભાળ માટે હાથ, પગ અને અન્ડરઆર્મ્સનું પરફેક્ટ વેક્સિંગ પેકેજ.",
-    benefits: [
-      "Quick 45-minute treatment at your home",
-      "Minimal irritation and no stickiness"
-    ],
-    includes: [
-      "Full arms, full legs and underarms",
-      "Post-wax cooling gel"
-    ],
-    featured: false,
-    active: true,
-    visualTheme: "wax",
-    imageUrl: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: "eyebrow-threading-upperlip",
-    name: "Eyebrow Threading & Upperlip / Forehead",
-    gujaratiName: "આઈ-બ્રો, અપરલિપ અને ફોરહેડ થ્રેડિંગ",
-    category: "Waxing",
-    price: 150,
-    originalPrice: 200,
-    duration: 20,
-    description: "Precision shape definition with sterile anti-bacterial organic cotton thread for crisp, clean brow arches.",
-    gujaratiDescription: "આંખોને આકર્ષક શેપ આપવા માટે પરફેક્ટ થ્રેડિંગ અને અપરલિપ કેર.",
-    benefits: [
-      "Crisp arch definition customized to your eyes",
-      "Quick and hygienic with aloe vera soothing gel"
-    ],
-    includes: [
-      "Eyebrows shaping",
-      "Upper lips & forehead hair removal",
-      "Cooling aloe vera massage"
-    ],
-    featured: false,
-    active: true,
-    visualTheme: "wax",
-    imageUrl: "https://images.unsplash.com/photo-1583001809873-a128495da465?auto=format&fit=crop&w=800&q=80"
-  },
-
-  // --- HANDS & FEET ---
-  {
-    id: "manicure-pedicure-combo",
-    name: "Deluxe Rose Petal Manicure & Pedicure Combo",
-    gujaratiName: "મેનીક્યોર અને પેડીક્યોર કોમ્બો",
-    category: "Hands & Feet",
-    price: 1100,
-    originalPrice: 1500,
-    duration: 75,
-    description: "A decadent spa bath for tired hands and cracked heels. Includes botanical dead-sea salt soak with fresh rose petals, heel scraping, cuticle grooming, and relaxing massage.",
-    gujaratiDescription: "ગુલાબની પાંખડીઓ સાથે હાથ-પગની ક્લિનિંગ, સ્ક્રબ અને રિલેક્સિંગ મસાજ.",
-    benefits: [
-      "Heals cracked heels and removes thick calluses",
-      "Restores softness to sun-exposed hands and feet",
-      "Clean, shaped, and naturally glossy nails"
-    ],
-    includes: [
-      "Aromatic rose-water warm soak with Epsom salts",
-      "Callus buffing & cuticle care",
-      "Walnut shell micro-exfoliation",
-      "20-minute acupressure foot and hand massage",
-      "Protective nail buffing or polish application"
-    ],
-    featured: true,
-    active: true,
-    visualTheme: "nails",
-    imageUrl: "https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: "heel-peel-pedicure",
-    name: "Advanced Heel Peel & Cracked Foot Treatment",
-    gujaratiName: "હીલ પીલ થેરાપી (પગની મજબૂત કાળજી)",
-    category: "Hands & Feet",
-    price: 700,
-    originalPrice: 950,
-    duration: 45,
-    description: "Clinical-strength fruit acid heel wrap that softens stubborn deep cracks, hard skin, and rough heels without painful blades.",
-    gujaratiDescription: "પગની તિરાડો અને કઠણ ચામડીને સોફ્ટ બનાવતી મેડિકેટેડ હીલ ટ્રીટમેન્ટ.",
-    benefits: [
-      "Noticeably baby-soft soles in just one session",
-      "Painless and safe for sensitive feet"
-    ],
-    includes: [
-      "Keratolytic fruit acid peel wrap",
-      "Gentle diamond-grit foot sanding",
-      "Rich shea butter moisture seal"
-    ],
-    featured: false,
-    active: true,
-    visualTheme: "nails",
-    imageUrl: "https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?auto=format&fit=crop&w=800&q=80"
-  },
-
-  // --- BODY CARE ---
-  {
-    id: "oil-body-massage",
-    name: "Holistic Herbal Oil Body Massage",
-    gujaratiName: "ઓઈલ બોડી મસાજ (હર્બલ રિલેક્સેશન)",
-    category: "Body Care",
-    price: 1400,
-    originalPrice: 1800,
-    duration: 60,
-    description: "Full-body stress melting massage using warm Ayurvedic sesame, almond, and essential oils. Performed strictly for ladies with warm towel wipe-downs.",
-    gujaratiDescription: "થાક અને બોડી પેઈન દૂર કરવા માટે વોર્મ આયુર્વેદિક ઓઈલ બોડી મસાજ.",
-    benefits: [
-      "Relieves backache, shoulder knots, and fatigue",
-      "Improves blood circulation and sound sleep",
-      "Nourishes deep dermis and leaves skin glowing"
-    ],
-    includes: [
-      "Warm botanical oil formulation",
-      "Full body rhythmic pressure stroke therapy",
-      "Warm steamed towel wipe-down"
-    ],
-    featured: true,
-    active: true,
-    visualTheme: "body",
+    popularTag: "Pure Relaxation • ₹899",
     imageUrl: "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: "cream-body-polish",
-    name: "Radiance Cream Body Polish",
-    gujaratiName: "ક્રીમ બોડી પોલિશ (બ્રાઇડલ ગ્લો)",
-    category: "Body Care",
-    price: 1600,
-    originalPrice: 2200,
-    duration: 75,
-    description: "Luxurious exfoliating wrap that sloughs away dead layers using crushed walnut, saffron cream, and milk proteins for silky, radiant body skin.",
-    gujaratiDescription: "આખા શરીરની સ્કિનને એકસરખી અને સોનેરી ચમક આપતું પ્રીમિયમ બોડી પોલિશિંગ.",
+    name: "Cream Body Polish",
+    gujaratiName: "ક્રીમ બોડી પોલિશ",
+    category: "Luxury Healing & Body",
+    price: 999,
+    originalPrice: 1500,
+    duration: 60,
+    description: "Exquisite exfoliating and brightening cream body polish that sloughs dead skin cells, reveals baby-soft silky texture, and restores radiant bridal glow across the body.",
+    gujaratiDescription: "બોડી સ્કિનને સ્મૂથ, ગ્લોઇંગ અને સિલ્કી સોફ્ટ બનાવતું ક્રીમ બોડી પોલિશ.",
     benefits: [
-      "Evens out stubborn pigmentation on elbows, knees & back",
-      "Velvety-soft texture that lasts for weeks",
-      "Essential pre-bridal glow preparation"
+      "Removes dead skin layers and deeply cleanses pores",
+      "Instantly evens out patchy skin tone & tan lines",
+      "Infuses lasting velvet smoothness and natural fragrance",
+      "Ideal prep for festive garba and bridal wear"
     ],
     includes: [
-      "Full body saffron-almond micro scrub",
-      "Nourishing herbal milk cream glaze massage",
-      "Moisturizing post-polish butter"
+      "Aromatherapy botanical body exfoliation scrub",
+      "Gentle full-body polishing circular strokes",
+      "Hydrating milk and rose nourishment emulsion",
+      "Silky skin finishing cream glaze"
     ],
     featured: true,
     active: true,
-    popularTag: "Bridal Essential",
-    visualTheme: "body",
-    imageUrl: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80"
+    popularTag: "Velvet Glow • ₹999",
+    imageUrl: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80"
+  },
+
+  // ==========================================
+  // 2. FACIALS & SKIN GLOW (ફેસિયલ અને ક્લીન અપ)
+  // ==========================================
+  {
+    id: "facial-classic",
+    name: "Facial (All Types)",
+    gujaratiName: "ફેશિયલ (બધા પ્રકારના ફેશિયલ)",
+    category: "Facials & Skin Glow",
+    price: 400,
+    startingPrice: true,
+    duration: 60,
+    description: "Customized professional salon facial tailored to your skin type (Herbal, Gold, Diamond, Fruit, or Radiance) for deep nourishment, pore cleansing, and glowing complexion.",
+    gujaratiDescription: "તમારી સ્કિન ટાઈપ મુજબના હર્બલ, ગોલ્ડ અને ગ્લોઇંગ ફેશિયલ.",
+    benefits: [
+      "Deep pore unclogging & blackhead removal",
+      "Improves skin tone, elasticity, and softness",
+      "Stimulates lymphatic circulation with relaxing face massage"
+    ],
+    includes: [
+      "Skin type analysis & double cleansing",
+      "Gentle steam & exfoliation scrub",
+      "Acupressure face, neck & shoulder massage",
+      "Nourishing herbal treatment pack"
+    ],
+    featured: true,
+    active: true,
+    popularTag: "Start from ₹400",
+    imageUrl: "https://images.unsplash.com/photo-1512290900672-1f4164eb34a5?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: "clean-up",
+    name: "Clean Up",
+    gujaratiName: "ક્લીન અપ",
+    category: "Facials & Skin Glow",
+    price: 350,
+    startingPrice: true,
+    duration: 40,
+    description: "Quick and effective deep-pore purifying facial clean up that removes dirt, dead cells, and excess sebum for an instant clean and refreshed look.",
+    gujaratiDescription: "ત્વચાના છિદ્રોની ઊંડાણપૂર્વક સફાઈ કરતું ઇન્સ્ટન્ટ ફ્રેશ ક્લીન અપ.",
+    benefits: [
+      "Clears stubborn blackheads & whiteheads",
+      "Restores fresh natural glow in under 45 minutes",
+      "Controls excess oiliness and prevents breakouts"
+    ],
+    includes: [
+      "Cleansing & deep enzyme scrub",
+      "Gentle steam & blackhead extraction",
+      "Soothing tone balancing pack"
+    ],
+    featured: false,
+    active: true,
+    popularTag: "Start from ₹350",
+    imageUrl: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: "d-tan-treatment",
+    name: "D-Ten (D-Tan)",
+    gujaratiName: "ડી-ટેન",
+    category: "Facials & Skin Glow",
+    price: 200,
+    startingPrice: true,
+    duration: 30,
+    description: "Instant botanical de-tan pack that fades stubborn sun tanning, environmental pollution dullness, and pigmentation patches on face or neck.",
+    gujaratiDescription: "સૂર્યના તાપથી કાળી પડેલી ત્વચાનો કલર લાઈટ કરતું ઇન્સ્ટન્ટ ડી-ટેન પેક.",
+    benefits: [
+      "Reverses sun damage and outdoor tanning",
+      "Brightens complexion without harsh bleaching agents",
+      "Leaves skin visibly clearer and even-toned"
+    ],
+    includes: [
+      "Pre-tan cleansing wash",
+      "Natural kojic & fruit acid de-tan paste",
+      "Post-soothing cooling aloe hydration"
+    ],
+    featured: false,
+    active: true,
+    popularTag: "Start from ₹200",
+    imageUrl: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: "bleach-service",
+    name: "Bleach",
+    gujaratiName: "બ્લીચ",
+    category: "Facials & Skin Glow",
+    price: 200,
+    startingPrice: true,
+    duration: 25,
+    description: "Gentle skin-safe facial bleaching formulated to camouflage fine facial hair and lighten dark spots for a radiant, uniform appearance.",
+    gujaratiDescription: "ચહેરાના વાળને ગોલ્ડન કરી ત્વચાને ચમકદાર બનાવતું જેન્ટલ બ્લીચ.",
+    benefits: [
+      "Lightens facial fuzz seamlessly with natural skin tone",
+      "Removes surface tanning and imparts instant fairness",
+      "Safe herbal activator suitable for delicate skin"
+    ],
+    includes: [
+      "Pre-bleach skin patch test & protective cream",
+      "Precision gold/diamond bleach application",
+      "Soothing post-bleach cold compression"
+    ],
+    featured: false,
+    active: true,
+    popularTag: "Start from ₹200",
+    imageUrl: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80"
+  },
+
+  // ==========================================
+  // 3. WAXING CARE (વેક્સિંગ કેર)
+  // ==========================================
+  {
+    id: "hand-wax",
+    name: "Hand Wax",
+    gujaratiName: "હેન્ડ વેક્સ",
+    category: "Waxing Care",
+    price: 150,
+    duration: 25,
+    description: "Smooth, clean hair removal for full hands using gentle skin-friendly wax, leaving your arms silky and bump-free.",
+    gujaratiDescription: "હાથના અણગમતા વાળ દૂર કરતું સ્મૂથ અને જેન્ટલ વેક્સિંગ.",
+    benefits: [
+      "Silky smooth arms lasting 3 to 4 weeks",
+      "Removes surface dead skin cells",
+      "Includes post-wax soothing lotion"
+    ],
+    includes: [
+      "Sanitizing pre-wax powder",
+      "Full arms waxing application with disposable strips",
+      "Cooling soothing moisturizer"
+    ],
+    featured: false,
+    active: true,
+    popularTag: "Only ₹150",
+    imageUrl: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: "half-leg-wax",
+    name: "Half Leg Wax",
+    gujaratiName: "હાફ લેગ વેક્સ",
+    category: "Waxing Care",
+    price: 150,
+    duration: 30,
+    description: "Quick, hygienic half-leg hair removal from knees to ankles for effortlessly smooth and tidy legs.",
+    gujaratiDescription: "ઢીંચણથી પગ સુધીના વાળ દૂર કરતું હાફ લેગ વેક્સિંગ.",
+    benefits: [
+      "Clean, smooth legs free from prickliness",
+      "Single-use hygienic wooden spatulas",
+      "Fast and virtually painless technique"
+    ],
+    includes: [
+      "Skin preparation & sanitization",
+      "Half legs wax application",
+      "Post-depilatory calming gel"
+    ],
+    featured: false,
+    active: true,
+    popularTag: "Only ₹150",
+    imageUrl: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: "under-arms-wax",
+    name: "Under Arms",
+    gujaratiName: "અંડર આર્મ્સ",
+    category: "Waxing Care",
+    price: 50,
+    duration: 15,
+    description: "Gentle and precise underarm hair removal ensuring smooth, clean, and irritation-free skin.",
+    gujaratiDescription: "સ્વચ્છ અને સ્મૂથ અંડર આર્મ્સ વેક્સિંગ માત્ર ₹50 માં.",
+    benefits: [
+      "Ultra-hygienic and quick",
+      "Reduces underarm darkening and ingrown hairs",
+      "Smooth results for 3-4 weeks"
+    ],
+    includes: [
+      "Antiseptic pre-cleanse",
+      "Warm peel-off wax removal",
+      "Cooling aloe vera finish"
+    ],
+    featured: false,
+    active: true,
+    popularTag: "Only ₹50",
+    imageUrl: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: "rica-wax",
+    name: "Rica Wax",
+    gujaratiName: "રિકા વેક્સ",
+    category: "Waxing Care",
+    price: 200,
+    startingPrice: true,
+    duration: 35,
+    description: "Premium Italian Rica liposoluble wax made with natural resin and vegetable oils for 100% colophony-free, gentle waxing on sensitive skin.",
+    gujaratiDescription: "સેન્સિટિવ સ્કિન માટે ઇટાલિયન પ્રીમિયમ રિકા વેક્સ.",
+    benefits: [
+      "Virtually painless and gentle on sensitive areas",
+      "No skin peeling, redness, or allergic reaction",
+      "Grabs the shortest, finest hairs from roots"
+    ],
+    includes: [
+      "Rica pre-wax purifying gel",
+      "Warm Rica wax strip application",
+      "Rica nourishing post-wax oil"
+    ],
+    featured: true,
+    active: true,
+    popularTag: "Start from ₹200",
+    imageUrl: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: "full-body-wax",
+    name: "Full Body Wax",
+    gujaratiName: "ફૂલ બોડી વેક્સ",
+    category: "Waxing Care",
+    price: 700,
+    duration: 75,
+    description: "Complete full-body hair removal covering full arms, full legs, underarms, and back in absolute privacy and comfort of your home.",
+    gujaratiDescription: "આખા શરીરના અણગમતા વાળ દૂર કરતું સંપૂર્ણ ફૂલ બોડી વેક્સિંગ.",
+    benefits: [
+      "Complete head-to-toe silky smoothness",
+      "Hospital-grade sanitized disposable supplies",
+      "Ideal before weddings, festivals, and holidays"
+    ],
+    includes: [
+      "Full arms + Underarms waxing",
+      "Full legs waxing",
+      "Front & back touchups",
+      "Calming tea tree lotion"
+    ],
+    featured: true,
+    active: true,
+    popularTag: "Full Body Care",
+    imageUrl: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80"
+  },
+
+  // ==========================================
+  // 4. HANDS & FEET (મેનિક્યોર અને પેડિક્યોર)
+  // ==========================================
+  {
+    id: "manicure",
+    name: "Manicure",
+    gujaratiName: "મેનીક્યોર",
+    category: "Hands & Feet",
+    price: 400,
+    duration: 45,
+    description: "Pampering hand spa ritual including warm rose petal soak, cuticle cleaning, dead skin scrub, nail shaping, and relaxing hand massage.",
+    gujaratiDescription: "હાથ અને નખની સંપૂર્ણ સુંદરતા માટે લક્ઝરી મેનીક્યોર.",
+    benefits: [
+      "Softens rough hands and dry cuticle beds",
+      "Shapes and polishes nails cleanly",
+      "Improves joint circulation with soothing massage"
+    ],
+    includes: [
+      "Warm aromatherapy petal soak",
+      "Cuticle push, trim, & nail buffing",
+      "Sugar almond hand exfoliation",
+      "Moisturizing cream hand massage"
+    ],
+    featured: false,
+    active: true,
+    popularTag: "Only ₹400",
+    imageUrl: "https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: "pedicure",
+    name: "Pedicure",
+    gujaratiName: "પેડિક્યોર",
+    category: "Hands & Feet",
+    price: 400,
+    duration: 45,
+    description: "Revitalizing foot spa therapy that cleanses cracked heels, buffs away tough calluses, trims toenails, and eases tired feet with a soothing massage.",
+    gujaratiDescription: "થાકેલા પગ અને ફાટેલી એડીને સોફ્ટ બનાવતું રિલેક્સિંગ પેડિક્યોર.",
+    benefits: [
+      "Removes rough heel calluses and dead skin",
+      "Relieves swollen, tired feet and calf muscles",
+      "Neat, hygienic toenail grooming"
+    ],
+    includes: [
+      "Warm therapeutic foot bath",
+      "Heel scrubbing with pumice stone & callus file",
+      "Invigorating foot scrub & nail grooming",
+      "Pressure point foot & calf massage"
+    ],
+    featured: false,
+    active: true,
+    popularTag: "Only ₹400",
+    imageUrl: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=800&q=80"
+  },
+
+  // ==========================================
+  // 5. HAIR RITUALS (હેર કેર અને સ્ટાઇલિંગ)
+  // ==========================================
+  {
+    id: "normal-hair-spa",
+    name: "Normal Hair Spa",
+    gujaratiName: "નોર્મલ હેર સ્પા",
+    category: "Hair Rituals",
+    price: 350,
+    duration: 45,
+    description: "Deep conditioning restorative hair spa featuring intensive moisturizing cream, relaxing pressure point head massage, and steaming to banish dryness.",
+    gujaratiDescription: "વાળને મુલાયમ, સિલ્કી અને મજબૂત બનાવતું ડીપ કન્ડિશનિંગ હેર સ્પા.",
+    benefits: [
+      "Restores moisture balance to dry, frizzy hair",
+      "Relieves head tension and mental fatigue",
+      "Stimulates roots for healthier hair growth"
+    ],
+    includes: [
+      "Professional nourishing hair cream application",
+      "Relaxing Indian head & scalp acupressure massage",
+      "Hair steaming and towel wrap"
+    ],
+    featured: true,
+    active: true,
+    popularTag: "Great Value ₹350",
+    imageUrl: "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: "hair-cut",
+    name: "Hair Cut",
+    gujaratiName: "હેર કટ",
+    category: "Hair Rituals",
+    price: 100,
+    duration: 30,
+    description: "Professional ladies' haircut, split-end trimming, layer cut, or U/V shape cut styled right at your home.",
+    gujaratiDescription: "તમારા ફેસ લુકને અનુરૂપ પરફેક્ટ હેર કટિંગ અને ટ્રીમિંગ.",
+    benefits: [
+      "Eliminates dead split ends",
+      "Adds bouncy volume and tidy shape",
+      "Sterilized professional scissors & styling"
+    ],
+    includes: [
+      "Consultation on shape and length",
+      "Precision cut & section trimming",
+      "Blow-dry styling check"
+    ],
+    featured: false,
+    active: true,
+    popularTag: "Only ₹100",
+    imageUrl: "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: "hair-highlights",
+    name: "Highlights",
+    gujaratiName: "હાઈ લાઈટ",
+    category: "Hair Rituals",
+    price: 500,
+    startingPrice: true,
+    duration: 60,
+    description: "Trendy streak hair highlights that add dimensional depth and salon flair to your locks.",
+    gujaratiDescription: "વાળને નવો સ્ટાઇલિશ લુક આપતી મોર્ડન હેર હાઈલાઈટ્સ.",
+    benefits: [
+      "Adds gorgeous dimension and youthful shine",
+      "Ammonia-safe premium hair pigments",
+      "Tailored sectioning for subtle or bold looks"
+    ],
+    includes: [
+      "Foil sectioning & strand lightening",
+      "Toning & gloss wash",
+      "Post-color protective hair mask"
+    ],
+    featured: false,
+    active: true,
+    popularTag: "Start from ₹500",
+    imageUrl: "https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: "hair-colour",
+    name: "Hair Colour",
+    gujaratiName: "હેર કલર",
+    category: "Hair Rituals",
+    price: 400,
+    startingPrice: true,
+    duration: 60,
+    description: "Complete grey coverage or vibrant global hair coloring applied with precision and no-mess cleanliness in your home.",
+    gujaratiDescription: "ગ્રે હેર કવરેજ અને ગ્લોબલ હેર કલરિંગ સર્વિસ.",
+    benefits: [
+      "100% grey hair coverage",
+      "Long-lasting rich salon shine",
+      "No staining or home mess"
+    ],
+    includes: [
+      "Root touchup or global application",
+      "Protective hairline barrier cream",
+      "Color lock shampoo & conditioner"
+    ],
+    featured: false,
+    active: true,
+    popularTag: "Start from ₹400",
+    imageUrl: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: "permanent-straightening",
+    name: "Permanent Hair Straightening & Smoothing",
+    gujaratiName: "પરમેનન્ટ હેર સ્ટ્રેટનિંગ અને સ્મૂથનિંગ",
+    category: "Hair Rituals",
+    price: 1500,
+    startingPrice: true,
+    duration: 180,
+    description: "Transform unruly, frizzy waves into mirror-shine, silky poker-straight hair that lasts for months with premium salon-grade rebonding/keratin smoothing.",
+    gujaratiDescription: "વાળને કાયમી સિલ્કી, સોફ્ટ અને સીધા કરતું પરમેનન્ટ સ્ટ્રેટનિંગ.",
+    benefits: [
+      "Zero morning frizz or styling hassle",
+      "Silky smooth texture that lasts 6-10 months",
+      "Deep protein bonding to strengthen damaged hair"
+    ],
+    includes: [
+      "Pre-treatment clarifying hair wash",
+      "Section-by-section smoothing cream & neutralizer",
+      "Thermal iron sealing & keratin protein infusion",
+      "Post-care routine instructions"
+    ],
+    featured: true,
+    active: true,
+    popularTag: "Start from ₹1,500",
+    imageUrl: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80"
+  },
+
+  // ==========================================
+  // 6. THREADING (આઇબ્રો અને અપર લિપ્સ)
+  // ==========================================
+  {
+    id: "eye-brow",
+    name: "Eye Brow",
+    gujaratiName: "આઇબ્રો",
+    category: "Threading",
+    price: 50,
+    duration: 15,
+    description: "Precise eyebrow shaping and threading using sterilized organic cotton thread to define your facial frame cleanly.",
+    gujaratiDescription: "પરફેક્ટ શેપ સાથે આઇબ્રો થ્રેડિંગ માત્ર ₹50 માં.",
+    benefits: [
+      "Sharp, clean eyebrow arch definition",
+      "Hygienic cotton thread with no skin pulling",
+      "Gentle cooling astringent application"
+    ],
+    includes: [
+      "Brow shape consultation",
+      "Precision thread shaping",
+      "Soothing rose water touch"
+    ],
+    featured: false,
+    active: true,
+    popularTag: "Only ₹50",
+    imageUrl: "https://images.unsplash.com/photo-1583001809873-a128495da465?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: "upper-lips",
+    name: "Upper Lips",
+    gujaratiName: "અપર લિપ્સ",
+    category: "Threading",
+    price: 20,
+    duration: 10,
+    description: "Quick and neat upper lip hair removal using organic cotton thread for smooth, hair-free lips.",
+    gujaratiDescription: "અપર લિપ્સના વાળ દૂર કરવાનું ઝડપી અને ચોખ્ખું થ્રેડિંગ માત્ર ₹20 માં.",
+    benefits: [
+      "Quick 5-10 minute gentle session",
+      "Smooth foundation and lipstick application",
+      "Affordable daily upkeep"
+    ],
+    includes: [
+      "Cleanse and powder prep",
+      "Precision cotton thread hair removal",
+      "Calming aloe finish"
+    ],
+    featured: false,
+    active: true,
+    popularTag: "Only ₹20",
+    imageUrl: "https://images.unsplash.com/photo-1583001809873-a128495da465?auto=format&fit=crop&w=800&q=80"
   }
 ];
-
-export const serviceCategories = [
-  "All",
-  "Premium Services",
-  "Facial",
-  "Hair",
-  "Waxing",
-  "Hands & Feet",
-  "Body Care"
-] as const;
-

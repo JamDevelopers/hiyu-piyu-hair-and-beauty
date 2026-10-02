@@ -24,6 +24,7 @@ import {
   Award
 } from 'lucide-react';
 import { services, Service, serviceCategories } from '../data/services';
+import { offers, Offer, offerCategories } from '../data/offers';
 import { timeSlots, defaultDate } from '../data/timeSlots';
 import { settings } from '../data/settings';
 import { validatePromoCode } from '../utils/promo';
@@ -55,6 +56,10 @@ export const BookingForm: React.FC<BookingFormProps> = ({
   // Offer package support
   const [customPackageName, setCustomPackageName] = useState<string>(initialPackageTitle || '');
   const [customPackagePrice, setCustomPackagePrice] = useState<number>(initialPrice || 0);
+
+  // Catalog tab: individual services vs packages/combos
+  const [catalogType, setCatalogType] = useState<'services' | 'packages'>(initialPackageTitle ? 'packages' : 'services');
+  const [packageCategory, setPackageCategory] = useState<string>('All Offers');
 
   // Search & category filter in Step 1
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -278,6 +283,19 @@ export const BookingForm: React.FC<BookingFormProps> = ({
       svc.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       svc.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
       (svc.gujaratiName && svc.gujaratiName.toLowerCase().includes(searchQuery.toLowerCase()));
+    return matchesCategory && matchesSearch;
+  });
+
+  // Filtered packages/combos for Step 1
+  const filteredPackages = offers.filter((pkg) => {
+    const matchesCategory = packageCategory === 'All Offers' || pkg.category === packageCategory;
+    const query = searchQuery.toLowerCase().trim();
+    const matchesSearch =
+      !query ||
+      pkg.title.toLowerCase().includes(query) ||
+      pkg.gujaratiTitle.toLowerCase().includes(query) ||
+      pkg.description.toLowerCase().includes(query) ||
+      pkg.includedServices.some((s) => s.toLowerCase().includes(query));
     return matchesCategory && matchesSearch;
   });
 
@@ -631,12 +649,47 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                   )}
                 </div>
 
-                {/* 2. SEARCH & CATEGORY FILTER TABS */}
-                <div className="space-y-3 pt-2">
+                {/* 2. CATALOG TYPE SWITCHER: INDIVIDUAL SERVICES VS PACKAGES/COMBOS */}
+                <div className="pt-1 pb-2">
+                  <div className="flex items-center justify-center p-1.5 bg-[#FAF5ED] rounded-2xl max-w-md mx-auto border border-[#D5AA63]/30 shadow-xs">
+                    <button
+                      type="button"
+                      onClick={() => setCatalogType('services')}
+                      className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                        catalogType === 'services'
+                          ? 'bg-[#650A20] text-[#E9CB8A] shadow-sm'
+                          : 'text-stone-600 hover:text-[#650A20]'
+                      }`}
+                    >
+                      <Sparkles className="w-3.5 h-3.5" />
+                      <span>Individual Services ({services.length})</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => setCatalogType('packages')}
+                      className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                        catalogType === 'packages'
+                          ? 'bg-[#650A20] text-[#E9CB8A] shadow-sm'
+                          : 'text-stone-600 hover:text-[#650A20]'
+                      }`}
+                    >
+                      <Award className="w-3.5 h-3.5" />
+                      <span>Combos &amp; Packages ({offers.length})</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* 3. SEARCH & CATEGORY FILTER TABS */}
+                <div className="space-y-3 pt-1">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <span className="text-xs font-bold uppercase tracking-[0.2em] text-stone-700 flex items-center gap-1.5">
                       <Sparkles className="w-3.5 h-3.5 text-[#D5AA63]" />
-                      <span>Select Treatments from Catalog</span>
+                      <span>
+                        {catalogType === 'services'
+                          ? 'Select Treatments from Official Menu'
+                          : 'Select Curated Packages & Festive Combos'}
+                      </span>
                     </span>
 
                     {/* Search Input */}
@@ -644,7 +697,11 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                       <Search className="w-3.5 h-3.5 text-stone-400 absolute left-3.5 top-3" />
                       <input
                         type="text"
-                        placeholder="Search facial, hair, waxing..."
+                        placeholder={
+                          catalogType === 'services'
+                            ? "Search facial, waxing, hair spa..."
+                            : "Search Navratri, chakra, polish..."
+                        }
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         className="w-full pl-9 pr-8 py-2 bg-white border border-stone-300 rounded-full text-xs text-stone-800 focus:outline-none focus:ring-2 focus:ring-[#D5AA63]"
@@ -661,172 +718,327 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                     </div>
                   </div>
 
-                  {/* Category Pills */}
-                 <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-none text-xs">
-                    {['All', ...serviceCategories.filter((cat) => cat !== 'All')].map((cat) => {
-                      const isActive = activeCategory === cat;
+                  {/* Category Pills for Services or Packages */}
+                  {catalogType === 'services' ? (
+                    <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-none text-xs">
+                      {['All', ...serviceCategories.filter((cat) => cat !== 'All')].map((cat) => {
+                        const isActive = activeCategory === cat;
+                        const count =
+                          cat === 'All'
+                            ? services.length
+                            : services.filter((s) => s.category === cat).length;
 
-                      const count =
-                        cat === 'All'
-                          ? services.length
-                          : services.filter((s) => s.category === cat).length;
-
-                      return (
-                        <button
-                          type="button"
-                          key={cat}
-                          onClick={() => setActiveCategory(cat)}
-                          className={`relative px-3.5 py-1.5 rounded-full whitespace-nowrap text-xs font-medium transition-all cursor-pointer flex items-center gap-1.5 ${
-                            isActive
-                              ? 'bg-[#4A0718] text-[#E9CB8A] shadow-sm font-semibold'
-                              : 'bg-white text-stone-600 hover:bg-stone-100 border border-stone-200'
-                          }`}
-                        >
-                          <span>{cat}</span>
-
-                          <span
-                            className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                        return (
+                          <button
+                            type="button"
+                            key={cat}
+                            onClick={() => setActiveCategory(cat)}
+                            className={`relative px-3.5 py-1.5 rounded-full whitespace-nowrap text-xs font-medium transition-all cursor-pointer flex items-center gap-1.5 ${
                               isActive
-                                ? 'bg-white/20 text-white'
-                                : 'bg-stone-100 text-stone-500'
+                                ? 'bg-[#4A0718] text-[#E9CB8A] shadow-sm font-semibold'
+                                : 'bg-white text-stone-600 hover:bg-stone-100 border border-stone-200'
                             }`}
                           >
-                            {count}
-                          </span>
-                        </button>
-                      );
-                    })}
-                  </div>
+                            <span>{cat}</span>
+                            <span
+                              className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                                isActive
+                                  ? 'bg-white/20 text-white'
+                                  : 'bg-stone-100 text-stone-500'
+                              }`}
+                            >
+                              {count}
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  ) : (
+                    <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-none text-xs">
+                      {offerCategories.map((cat) => {
+                        const isActive = packageCategory === cat;
+                        const count =
+                          cat === 'All Offers'
+                            ? offers.length
+                            : offers.filter((o) => o.category === cat).length;
+
+                        return (
+                          <button
+                            type="button"
+                            key={cat}
+                            onClick={() => setPackageCategory(cat)}
+                            className={`relative px-3.5 py-1.5 rounded-full whitespace-nowrap text-xs font-medium transition-all cursor-pointer flex items-center gap-1.5 ${
+                              isActive
+                                ? 'bg-[#650A20] text-white shadow-sm font-semibold'
+                                : 'bg-white text-stone-600 hover:bg-stone-100 border border-stone-200'
+                            }`}
+                          >
+                            <span>{cat}</span>
+                            <span
+                              className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                                isActive
+                                  ? 'bg-white/20 text-white'
+                                  : 'bg-stone-100 text-stone-500'
+                              }`}
+                            >
+                              {count}
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
 
-                {/* 3. CARD-BASED SERVICE SELECTION GRID WITH MOTION */}
-                <motion.div
-                  layout
-                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-                >
-                  <AnimatePresence>
-                    {filteredCatalog.map((svc) => {
-                      const isSelected = selectedServiceIds.includes(svc.id);
+                {/* 4. RENDER EITHER SERVICES GRID OR PACKAGES GRID */}
+                {catalogType === 'services' ? (
+                  <motion.div
+                    layout
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+                  >
+                    <AnimatePresence>
+                      {filteredCatalog.map((svc) => {
+                        const isSelected = selectedServiceIds.includes(svc.id);
 
-                      return (
-                        <motion.div
-                          key={svc.id}
-                          layout
-                          initial={{ opacity: 0, scale: 0.95 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          exit={{ opacity: 0, scale: 0.95 }}
-                          whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                          whileTap={{ scale: 0.98 }}
-                          onClick={() => handleToggleService(svc.id)}
-                          className={`group relative rounded-2xl overflow-hidden border transition-all cursor-pointer flex flex-col justify-between ${
-                            isSelected
-                              ? 'bg-[#FFF7E9] border-[#D5AA63] shadow-md ring-2 ring-[#D5AA63]/40'
-                              : 'bg-white border-stone-200 hover:border-[#D5AA63]/60 hover:shadow-sm'
-                          }`}
-                        >
-                          {/* Image Header with Badge & Duration */}
-                          <div className="relative h-36 w-full overflow-hidden bg-stone-100">
-                            <img
-                              src={svc.imageUrl}
-                              alt={svc.name}
-                              referrerPolicy="no-referrer"
-                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent pointer-events-none" />
+                        return (
+                          <motion.div
+                            key={svc.id}
+                            layout
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.95 }}
+                            whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                            whileTap={{ scale: 0.98 }}
+                            onClick={() => handleToggleService(svc.id)}
+                            className={`group relative rounded-2xl overflow-hidden border transition-all cursor-pointer flex flex-col justify-between ${
+                              isSelected
+                                ? 'bg-[#FFF7E9] border-[#D5AA63] shadow-md ring-2 ring-[#D5AA63]/40'
+                                : 'bg-white border-stone-200 hover:border-[#D5AA63]/60 hover:shadow-sm'
+                            }`}
+                          >
+                            {/* Image Header with Badge & Duration */}
+                            <div className="relative h-36 w-full overflow-hidden bg-stone-100">
+                              <img
+                                src={svc.imageUrl}
+                                alt={svc.name}
+                                referrerPolicy="no-referrer"
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent pointer-events-none" />
 
-                            {/* Category Pill on Image */}
-                            <div className="absolute top-2.5 left-2.5">
-                              <span className="px-2 py-0.5 rounded-full text-[9px] font-bold tracking-wider uppercase bg-white/95 text-[#4A0718] border border-[#D5AA63]/40 shadow-xs backdrop-blur-xs">
-                                {svc.category}
-                              </span>
-                            </div>
-
-                            {/* Duration Badge */}
-                            <div className="absolute bottom-2 left-2.5 text-white text-[11px] font-medium flex items-center gap-1">
-                              <Clock className="w-3 h-3 text-[#E9CB8A]" />
-                              <span>{svc.duration} mins</span>
-                            </div>
-
-                            {/* Selected Checkmark Overlay */}
-                            {isSelected && (
-                              <motion.div
-                                initial={{ scale: 0 }}
-                                animate={{ scale: 1 }}
-                                className="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-md border border-white"
-                              >
-                                <Check className="w-3.5 h-3.5" />
-                              </motion.div>
-                            )}
-                          </div>
-
-                          {/* Card Content Body */}
-                          <div className="p-4 flex-1 flex flex-col justify-between">
-                            <div>
-                              <div className="flex items-start justify-between gap-1">
-                                <h4 className="font-serif text-base font-bold text-stone-900 group-hover:text-[#4A0718] transition-colors leading-tight">
-                                  {svc.name}
-                                </h4>
+                              {/* Category Pill on Image */}
+                              <div className="absolute top-2.5 left-2.5">
+                                <span className="px-2 py-0.5 rounded-full text-[9px] font-bold tracking-wider uppercase bg-white/95 text-[#4A0718] border border-[#D5AA63]/40 shadow-xs backdrop-blur-xs">
+                                  {svc.category}
+                                </span>
                               </div>
 
-                              {svc.gujaratiName && (
-                                <p className="text-xs text-[#8E1837] italic font-serif mt-0.5 font-semibold">
-                                  {svc.gujaratiName}
-                                </p>
-                              )}
+                              {/* Duration Badge */}
+                              <div className="absolute bottom-2 left-2.5 text-white text-[11px] font-medium flex items-center gap-1">
+                                <Clock className="w-3 h-3 text-[#E9CB8A]" />
+                                <span>{svc.duration} mins</span>
+                              </div>
 
-                              <p className="text-stone-500 text-xs mt-1.5 line-clamp-2 leading-relaxed">
-                                {svc.description}
-                              </p>
+                              {/* Selected Checkmark Overlay */}
+                              {isSelected && (
+                                <motion.div
+                                  initial={{ scale: 0 }}
+                                  animate={{ scale: 1 }}
+                                  className="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-md border border-white"
+                                >
+                                  <Check className="w-3.5 h-3.5" />
+                                </motion.div>
+                              )}
                             </div>
 
-                            {/* Price & Action Button */}
-                            <div className="pt-3 mt-3 border-t border-stone-100 flex items-center justify-between">
-                              <div className="flex items-baseline gap-1.5">
-                                <span className="font-mono text-base font-bold text-[#4A0718]">
-                                  ₹{svc.price}
+                            {/* Card Content Body */}
+                            <div className="p-4 flex-1 flex flex-col justify-between">
+                              <div>
+                                <div className="flex items-start justify-between gap-1">
+                                  <h4 className="font-serif text-base font-bold text-stone-900 group-hover:text-[#4A0718] transition-colors leading-tight">
+                                    {svc.name}
+                                  </h4>
+                                </div>
+
+                                {svc.gujaratiName && (
+                                  <p className="text-xs text-[#8E1837] italic font-serif mt-0.5 font-semibold">
+                                    {svc.gujaratiName}
+                                  </p>
+                                )}
+
+                                <p className="text-stone-500 text-xs mt-1.5 line-clamp-2 leading-relaxed">
+                                  {svc.description}
+                                </p>
+                              </div>
+
+                              {/* Price & Action Button */}
+                              <div className="pt-3 mt-3 border-t border-stone-100 flex items-center justify-between">
+                                <div className="flex items-baseline gap-1.5">
+                                  <span className="font-mono text-base font-bold text-[#4A0718]">
+                                    ₹{svc.price}
+                                  </span>
+                                  {svc.originalPrice && svc.originalPrice > svc.price && (
+                                    <span className="text-[11px] text-stone-400 line-through">
+                                      ₹{svc.originalPrice}
+                                    </span>
+                                  )}
+                                </div>
+
+                                <button
+                                  type="button"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleToggleService(svc.id);
+                                  }}
+                                  className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                                    isSelected
+                                      ? 'bg-emerald-600 text-white shadow-xs'
+                                      : 'bg-stone-100 text-stone-700 hover:bg-[#4A0718] hover:text-white'
+                                  }`}
+                                >
+                                  {isSelected ? (
+                                    <>
+                                      <Check className="w-3.5 h-3.5" />
+                                      <span>Added</span>
+                                    </>
+                                  ) : (
+                                    <>
+                                      <Plus className="w-3.5 h-3.5" />
+                                      <span>Add</span>
+                                    </>
+                                  )}
+                                </button>
+                              </div>
+                            </div>
+                          </motion.div>
+                        );
+                      })}
+                    </AnimatePresence>
+                  </motion.div>
+                ) : (
+                  /* PACKAGES & COMBOS GRID */
+                  <motion.div
+                    layout
+                    className="grid grid-cols-1 md:grid-cols-2 gap-4"
+                  >
+                    <AnimatePresence>
+                      {filteredPackages.map((pkg) => {
+                        const isPkgSelected = customPackageName === pkg.title;
+
+                        return (
+                          <motion.div
+                            key={pkg.id}
+                            layout
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.95 }}
+                            whileHover={{ y: -3 }}
+                            className={`rounded-2xl p-5 border transition-all flex flex-col justify-between ${
+                              isPkgSelected
+                                ? 'bg-[#FFF7E9] border-[#D5AA63] shadow-md ring-2 ring-[#D5AA63]/50'
+                                : 'bg-white border-stone-200 hover:border-[#D5AA63]/60'
+                            }`}
+                          >
+                            <div className="space-y-2.5">
+                              <div className="flex items-center justify-between gap-2">
+                                <span className="text-[10px] font-mono font-bold tracking-wider text-white bg-[#650A20] px-2.5 py-0.5 rounded-md">
+                                  {pkg.packageCode}
                                 </span>
-                                {svc.originalPrice && svc.originalPrice > svc.price && (
-                                  <span className="text-[11px] text-stone-400 line-through">
-                                    ₹{svc.originalPrice}
+                                <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                                  Save ₹{pkg.savings}
+                                </span>
+                              </div>
+
+                              <div>
+                                <h4 className="font-serif text-lg font-bold text-[#241316]">
+                                  {pkg.title}
+                                </h4>
+                                <p className="font-serif text-xs text-[#8E1837] italic font-semibold">
+                                  {pkg.gujaratiTitle}
+                                </p>
+                              </div>
+
+                              <p className="text-stone-600 text-xs leading-relaxed">
+                                {pkg.tagline}
+                              </p>
+
+                              {/* Included Services Bullets */}
+                              <div className="bg-[#FAF5ED]/80 p-3 rounded-xl border border-[#D5AA63]/25 space-y-1">
+                                <span className="text-[10px] font-bold uppercase tracking-wider text-[#650A20] block">
+                                  INCLUDED SERVICES:
+                                </span>
+                                {pkg.includedServices.slice(0, 4).map((s, idx) => (
+                                  <div key={idx} className="flex items-center gap-1.5 text-[11px] text-stone-700">
+                                    <Check className="w-3 h-3 text-[#D5AA63] shrink-0" />
+                                    <span>{s}</span>
+                                  </div>
+                                ))}
+                                {pkg.includedServices.length > 4 && (
+                                  <span className="text-[10px] text-stone-400 italic block pl-4">
+                                    + {pkg.includedServices.length - 4} more treatments
                                   </span>
                                 )}
+                              </div>
+                            </div>
+
+                            <div className="pt-4 mt-4 border-t border-stone-100 flex items-center justify-between">
+                              <div>
+                                <span className="font-mono text-xl font-bold text-[#650A20]">
+                                  ₹{pkg.offerPrice}
+                                </span>
+                                <span className="text-xs text-stone-400 line-through ml-2">
+                                  ₹{pkg.originalPrice}
+                                </span>
                               </div>
 
                               <button
                                 type="button"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  handleToggleService(svc.id);
+                                onClick={() => {
+                                  if (isPkgSelected) {
+                                    setCustomPackageName('');
+                                    setCustomPackagePrice(0);
+                                  } else {
+                                    setCustomPackageName(pkg.title);
+                                    setCustomPackagePrice(pkg.offerPrice);
+                                    setValidationErrors((errs) => {
+                                      const copy = { ...errs };
+                                      delete copy.services;
+                                      return copy;
+                                    });
+                                  }
                                 }}
-                                className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-                                  isSelected
+                                className={`px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                                  isPkgSelected
                                     ? 'bg-emerald-600 text-white shadow-xs'
-                                    : 'bg-stone-100 text-stone-700 hover:bg-[#4A0718] hover:text-white'
+                                    : 'bg-gradient-to-r from-[#D5AA63] to-[#E9CB8A] text-[#241316] hover:brightness-105 shadow-2xs'
                                 }`}
                               >
-                                {isSelected ? (
+                                {isPkgSelected ? (
                                   <>
                                     <Check className="w-3.5 h-3.5" />
-                                    <span>Added</span>
+                                    <span>Package Selected</span>
                                   </>
                                 ) : (
-                                  <>
-                                    <Plus className="w-3.5 h-3.5" />
-                                    <span>Add</span>
-                                  </>
+                                  <span>Select Package</span>
                                 )}
                               </button>
                             </div>
-                          </div>
-                        </motion.div>
-                      );
-                    })}
-                  </AnimatePresence>
-                </motion.div>
+                          </motion.div>
+                        );
+                      })}
+                    </AnimatePresence>
+                  </motion.div>
+                )}
 
-                {filteredCatalog.length === 0 && (
+                {catalogType === 'services' && filteredCatalog.length === 0 && (
                   <div className="py-12 text-center text-stone-400 text-sm">
                     No services matched your search "{searchQuery}". Try a different keyword or category.
+                  </div>
+                )}
+
+                {catalogType === 'packages' && filteredPackages.length === 0 && (
+                  <div className="py-12 text-center text-stone-400 text-sm">
+                    No packages matched your search "{searchQuery}". Try a different keyword.
                   </div>
                 )}
               </motion.div>

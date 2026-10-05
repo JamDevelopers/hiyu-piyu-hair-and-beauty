@@ -159,7 +159,7 @@ export const offers: Offer[] = [
     savings: 901,
     validUntil: "Special Limited Offer",
     badge: "Top Recommendation • Save ₹901",
-    imageUrl: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/0.jpg",
     includedServices: [
       "Sound Therapy Facial (Calming Sound Waves • Relax & Rejuvenate)",
       "Stone Eye Mask (Amethyst cooling crystal • De-puff & Glow)",
@@ -190,7 +190,7 @@ export const offers: Offer[] = [
     savings: 501,
     validUntil: "Special Limited Offer",
     badge: "Special Offer • Only ₹999",
-    imageUrl: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/2.jpg",
     includedServices: [
       "Stone Eye Mask Facial Treatment",
       "Amethyst Gemstone Crystal Placement",
@@ -222,7 +222,7 @@ export const offers: Offer[] = [
     savings: 1401,
     validUntil: "Signature Collection",
     badge: "★ BEST SELLER • Save ₹1,401",
-    imageUrl: "https://images.unsplash.com/photo-1512290900672-1f4164eb34a5?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/002.webp",
     includedServices: [
       "Sound Therapy Facial (Sound vibration for calm & rejuvenation)",
       "Crystal Head Massage (Crystal healing to release tension)",

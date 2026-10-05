@@ -167,7 +167,7 @@ export const services: Service[] = [
     featured: true,
     active: true,
     popularTag: "Velvet Glow • ₹999",
-    imageUrl: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80"
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/4.jpg"
   },
 
   // ==========================================
@@ -197,7 +197,7 @@ export const services: Service[] = [
     featured: true,
     active: true,
     popularTag: "Start from ₹400",
-    imageUrl: "https://images.unsplash.com/photo-1512290900672-1f4164eb34a5?auto=format&fit=crop&w=800&q=80"
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/5.jpg"
   },
   {
     id: "clean-up",
@@ -222,7 +222,7 @@ export const services: Service[] = [
     featured: false,
     active: true,
     popularTag: "Start from ₹350",
-    imageUrl: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80"
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/6.webp"
   },
   {
     id: "d-tan-treatment",

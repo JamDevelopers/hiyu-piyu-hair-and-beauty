@@ -113,7 +113,7 @@ export const services: Service[] = [
     featured: true,
     active: true,
     popularTag: "Crystal Therapy • ₹1,200",
-    imageUrl: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80"
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/2.jpg"
   },
   {
     id: "oil-body-massage",
@@ -140,7 +140,7 @@ export const services: Service[] = [
     featured: true,
     active: true,
     popularTag: "Pure Relaxation • ₹899",
-    imageUrl: "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=800&q=80"
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/3.jpg"
   },
   {
     id: "cream-body-polish",

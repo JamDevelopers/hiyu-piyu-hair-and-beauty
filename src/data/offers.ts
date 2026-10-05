@@ -44,7 +44,7 @@ export const offers: Offer[] = [
     savings: 501,
     validUntil: "Till Navratri 2026",
     badge: "Navratri Special • Save ₹501",
-    imageUrl: "https://images.unsplash.com/photo-1595959183082-7b570b7e08e2?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/001.avif",
     includedServices: [
       "D-Tan Brightening Pack",
       "Glow Facial with Gentle Massage",
@@ -71,7 +71,7 @@ export const offers: Offer[] = [
     savings: 601,
     validUntil: "Till Navratri 2026",
     badge: "★ BEST SELLER • Save ₹601",
-    imageUrl: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/002.webp",
     includedServices: [
       "Premium Gold/Radiance Facial",
       "Full Arms Waxing",
@@ -98,7 +98,7 @@ export const offers: Offer[] = [
     savings: 1001,
     validUntil: "Till Navratri 2026",
     badge: "Festive Glam • Save ₹1,001",
-    imageUrl: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/001.avif",
     includedServices: [
       "Radiance Facial Treatment",
       "Deluxe Manicure Spa",
@@ -126,7 +126,7 @@ export const offers: Offer[] = [
     savings: 1301,
     validUntil: "Till Navratri 2026",
     badge: "Royal Luxury • Save ₹1,301",
-    imageUrl: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/002.webp",
     includedServices: [
       "Cream Body Polish Exfoliation",
       "Premium High-Glow Facial",
@@ -255,7 +255,7 @@ export const offers: Offer[] = [
     savings: 801,
     validUntil: "Special Limited Offer",
     badge: "Save ₹801 • Only ₹1,199",
-    imageUrl: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/0.jpg",
     includedServices: [
       "7 Chakra Crystal Placement and Energy Alignment",
       "Botanical Double Cleanse and Gentle Polish",
@@ -286,7 +286,7 @@ export const offers: Offer[] = [
     savings: 800,
     validUntil: "Special Limited Offer",
     badge: "Save ₹800 • Only ₹1,199",
-    imageUrl: "https://images.unsplash.com/photo-1512290900672-1f4164eb34a5?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/1.jpg",
     includedServices: [
       "Authentic Tibetan Singing Bowl Acoustic Prelude",
       "Deep Botanical Herbal Facial Cleanse",
@@ -322,7 +322,7 @@ export const offers: Offer[] = [
     savings: 701,
     validUntil: "Signature Package",
     badge: "Oil Massage Series • Only ₹1,499",
-    imageUrl: "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/3.jpg",
     includedServices: [
       "Oil Body Massage (Full Body Warm Herbal Oil)",
       "7 CHAKRA Facial Treatment",
@@ -348,7 +348,7 @@ export const offers: Offer[] = [
     savings: 1201,
     validUntil: "Signature Package",
     badge: "★ BEST SELLER • Only ₹1,999",
-    imageUrl: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/3.jpg",
     includedServices: [
       "Oil Body Massage",
       "Sound Therapy Facial",
@@ -378,7 +378,7 @@ export const offers: Offer[] = [
     savings: 1401,
     validUntil: "Signature Package",
     badge: "VIP Royal Oil Spa • Only ₹2,499",
-    imageUrl: "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/3.jpg",
     includedServices: [
       "Oil Body Massage (Extended Deep Therapy)",
       "Sound Therapy Facial",
@@ -413,7 +413,7 @@ export const offers: Offer[] = [
     savings: 901,
     validUntil: "Signature Package",
     badge: "Body Polish Series • Only ₹1,499",
-    imageUrl: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/4.jpg",
     includedServices: [
       "Cream Body Polish (Full Body)",
       "7 CHAKRA Facial",
@@ -441,7 +441,7 @@ export const offers: Offer[] = [
     savings: 1301,
     validUntil: "Signature Package",
     badge: "★ BEST SELLER • Only ₹1,999",
-    imageUrl: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/4.jpg",
     includedServices: [
       "Cream Body Polish",
       "7 CHAKRA Facial",
@@ -470,7 +470,7 @@ export const offers: Offer[] = [
     savings: 1601,
     validUntil: "Signature Package",
     badge: "VIP Royal Polish • Only ₹2,499",
-    imageUrl: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/4.jpg",
     includedServices: [
       "Cream Body Polish (Deep Full Body Exfoliation)",
       "7 CHAKRA Facial",

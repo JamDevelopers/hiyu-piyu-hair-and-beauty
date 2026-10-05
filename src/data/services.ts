@@ -247,7 +247,7 @@ export const services: Service[] = [
     featured: false,
     active: true,
     popularTag: "Start from ₹200",
-    imageUrl: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80"
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/7.avif"
   },
   {
     id: "bleach-service",

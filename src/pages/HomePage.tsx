@@ -286,7 +286,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   className="relative rounded-[2rem] overflow-hidden h-[450px] sm:h-[530px]"
                 >
                   <img
-                    src="/assets/0.jpg"
+                    src="/public/0.jpg"
                     alt="Radiant Indian beauty woman enjoying relaxing home facial"
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"

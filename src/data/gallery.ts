@@ -16,7 +16,7 @@ export const galleryItems: GalleryItem[] = [
     description: "Gemstone rollers, soothing aroma oils, and aura balancing crystals prepared at customer's home in Vesu.",
     tag: "Signature Ritual",
     theme: "chakra",
-    imageUrl: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80"
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/0.jpg"
   },
   {
     id: "gal-2",
@@ -25,7 +25,7 @@ export const galleryItems: GalleryItem[] = [
     description: "Mirror-gloss permanent hair straightening and keratin infusion for natural shine.",
     tag: "Hair Smoothing",
     theme: "hair",
-    imageUrl: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=800&q=80"
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/14.jpg"
   },
   {
     id: "gal-3",

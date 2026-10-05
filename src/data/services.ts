@@ -58,7 +58,7 @@ export const services: Service[] = [
     featured: true,
     active: true,
     popularTag: "Signature Healing • ₹1,500",
-    imageUrl: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80"
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/0.jpg"
   },
   {
     id: "sound-therapy-facial",
@@ -86,7 +86,7 @@ export const services: Service[] = [
     featured: true,
     active: true,
     popularTag: "Sound Wave Therapy • ₹1,300",
-    imageUrl: "https://images.unsplash.com/photo-1512290900672-1f4164eb34a5?auto=format&fit=crop&w=800&q=80"
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/1.jpg"
   },
   {
     id: "stone-eye-mask",

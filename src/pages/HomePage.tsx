@@ -686,7 +686,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               >
                 <div className="relative rounded-[2rem] overflow-hidden border border-[#D5AA63]/50 shadow-xl group">
                   <img
-                    src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=80"
+                    src="https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/0.jpg"
                     alt="7 Chakra Facial signature therapy"
                     referrerPolicy="no-referrer"
                     className="w-full h-80 sm:h-[460px] object-cover group-hover:scale-105 transition-transform duration-700 ease-out"

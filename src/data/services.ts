@@ -300,7 +300,7 @@ export const services: Service[] = [
     featured: false,
     active: true,
     popularTag: "Only ₹150",
-    imageUrl: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=800&q=80"
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/8.avif"
   },
   {
     id: "half-leg-wax",
@@ -324,7 +324,7 @@ export const services: Service[] = [
     featured: false,
     active: true,
     popularTag: "Only ₹150",
-    imageUrl: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80"
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/9.jpg"
   },
   {
     id: "under-arms-wax",
@@ -348,7 +348,7 @@ export const services: Service[] = [
     featured: false,
     active: true,
     popularTag: "Only ₹50",
-    imageUrl: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=800&q=80"
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/10.webp"
   },
   {
     id: "rica-wax",
@@ -373,7 +373,7 @@ export const services: Service[] = [
     featured: true,
     active: true,
     popularTag: "Start from ₹200",
-    imageUrl: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=800&q=80"
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/11.jpg"
   },
   {
     id: "full-body-wax",
@@ -398,7 +398,7 @@ export const services: Service[] = [
     featured: true,
     active: true,
     popularTag: "Full Body Care",
-    imageUrl: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80"
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/12.jpg"
   },
 
   // ==========================================
@@ -452,7 +452,7 @@ export const services: Service[] = [
     featured: false,
     active: true,
     popularTag: "Only ₹400",
-    imageUrl: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=800&q=80"
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/13.jpg"
   },
 
   // ==========================================
@@ -554,7 +554,7 @@ export const services: Service[] = [
     featured: false,
     active: true,
     popularTag: "Start from ₹400",
-    imageUrl: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=800&q=80"
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/14.jpg"
   },
   /*{
     id: "permanent-straightening",
@@ -608,7 +608,7 @@ export const services: Service[] = [
     featured: false,
     active: true,
     popularTag: "Only ₹50",
-    imageUrl: "https://images.unsplash.com/photo-1583001809873-a128495da465?auto=format&fit=crop&w=800&q=80"
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/15.webp"
   },
   {
     id: "upper-lips",
@@ -632,6 +632,6 @@ export const services: Service[] = [
     featured: false,
     active: true,
     popularTag: "Only ₹20",
-    imageUrl: "https://images.unsplash.com/photo-1583001809873-a128495da465?auto=format&fit=crop&w=800&q=80"
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/16.webp"
   }
 ];

@@ -286,7 +286,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   className="relative rounded-[2rem] overflow-hidden h-[450px] sm:h-[530px]"
                 >
                   <img
-                    src="https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/0.jpg"
+                    src="https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/11.avif"
                     alt="Radiant Indian beauty woman enjoying relaxing home facial"
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
@@ -306,8 +306,8 @@ export const HomePage: React.FC<HomePageProps> = ({
                       SIGNATURE RITUAL
                     </span>
                     <h3 className="font-serif text-2xl sm:text-3xl font-bold leading-tight text-white">
-                      7 Chakra Facial
-                    </h3>
+                      4 In 1 Glow Package Offer
+                    </h3>&nbsp;<p>Authentic 4 In 1 glow offering with 7 Chakra facial, Stone Eye Mask, Body Polish / Oil Body Massage, Full Wax (Hand + Leg + Underarms)</p>
                     <div className="flex items-center justify-between pt-2 border-t border-white/20 text-xs">
                       <span className="font-mono text-lg font-bold text-[#E9CB8A]">₹1,500</span>
                       <button

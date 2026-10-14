@@ -486,5 +486,65 @@ export const offers: Offer[] = [
       "Surat home service strictly for ladies."
     ],
     popular: false
+  },
+  {
+    id: "package-04b",
+    title: "Package 04B: Full Body Polish",
+    gujaratiTitle: "પેકેજ ૦4B: ફુલ બોડી પોલિશ",
+    packageCode: "PACKAGE 04B",
+    category: "Signature Packages (Polish)",
+    tagline: "The royal bridal & festive head-to-toe velvet skin transformation",
+    description: "The supreme pampering for brides, festive, and special celebrations. Includes deep cream body polish, Neck, Shoulder, Full Arms, Back, Stomach, Feet and Full-Legs.",
+    originalPrice: 1499,
+    offerPrice: 1199,
+    savings: 299,
+    validUntil: "Signature Package",
+    badge: "Full Body Polish • Only ₹1,199",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/4.jpg",
+    includedServices: [
+      "Neck",
+      "Shoulder",
+      "Full Arms",
+      "Back",
+      "Stomach",
+      "Full-Legs",
+      "Feet"
+    ],
+    terms: [
+      "Session duration ~ 3.5 to 4 hours.",
+      "Book 2-3 days in advance.",
+      "Surat home service strictly for ladies."
+    ],
+    popular: false
+  },
+  {
+    id: "package-05b",
+    title: "Package 05B: Half Body Polish",
+    gujaratiTitle: "પેકેજ ૦4B: હાફ બોડી પોલિશ",
+    packageCode: "PACKAGE 05B",
+    category: "Signature Packages (Polish)",
+    tagline: "The royal bridal & festive head-to-toe velvet skin transformation",
+    description: "The supreme pampering for brides, festive, and special celebrations. Includes deep cream body polish, Neck, Shoulder, Full Arms, Back, Stomach, Feet and Full-Legs.",
+    originalPrice: 999,
+    offerPrice: 699,
+    savings: 299,
+    validUntil: "Signature Package",
+    badge: "Half Body Polish • Only ₹ 699",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/4.jpg",
+    includedServices: [
+      "Neck",
+      "Shoulder",
+      "Full Arms",
+      "Back",
+      "Stomach",
+      "Full-Legs",
+      "Feet"
+    ],
+    terms: [
+      "Session duration ~ 1 to 1.5 hours.",
+      "Book 2-3 days in advance.",
+      "Surat home service strictly for ladies."
+    ],
+    popular: false
   }
 ];

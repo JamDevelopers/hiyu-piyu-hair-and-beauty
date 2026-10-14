@@ -493,7 +493,7 @@ export const offers: Offer[] = [
     gujaratiTitle: "પેકેજ ૦4B: ફુલ બોડી પોલિશ",
     packageCode: "PACKAGE 04B",
     category: "Signature Packages (Polish)",
-    tagline: "The royal bridal & festive head-to-toe velvet skin transformation",
+    tagline: "The royal bridal & festive Neck-to-toe (Except face) velvet skin transformation",
     description: "The supreme pampering for brides, festive, and special celebrations. Includes deep cream body polish, Neck, Shoulder, Full Arms, Back, Stomach, Feet and Full-Legs.",
     originalPrice: 1499,
     offerPrice: 1199,
@@ -523,7 +523,7 @@ export const offers: Offer[] = [
     gujaratiTitle: "પેકેજ ૦4B: હાફ બોડી પોલિશ",
     packageCode: "PACKAGE 05B",
     category: "Signature Packages (Polish)",
-    tagline: "The royal bridal & festive head-to-toe velvet skin transformation",
+    tagline: "The royal bridal & festive Neck, Arms, Legs Till Knees velvet skin transformation",
     description: "The supreme pampering for brides, festive, and special celebrations. Includes deep cream body polish, Neck, Shoulder, Full Arms, Back, Stomach, Feet and Full-Legs.",
     originalPrice: 999,
     offerPrice: 699,
@@ -535,10 +535,8 @@ export const offers: Offer[] = [
       "Neck",
       "Shoulder",
       "Full Arms",
-      "Back",
-      "Stomach",
-      "Full-Legs",
-      "Feet"
+      "Legs",
+      "Till Knees"
     ],
     terms: [
       "Session duration ~ 1 to 1.5 hours.",

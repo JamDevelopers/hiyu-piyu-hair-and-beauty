@@ -3,7 +3,7 @@ export interface Offer {
   title: string;
   gujaratiTitle: string;
   packageCode: string;
-  category: 'Navratri Garba Glow' | 'Luxury Healing' | 'Signature Packages (Oil)' | 'Signature Packages (Polish)';
+  category: 'Evergreen' | 'Navratri Garba Glow' | 'Luxury Healing' | 'Signature Packages (Oil)' | 'Signature Packages (Polish)';
   tagline: string;
   description: string;
   originalPrice: number;
@@ -20,6 +20,7 @@ export interface Offer {
 
 export const offerCategories = [
   'All Offers',
+  'Evergreen',
   'Navratri Garba Glow',
   'Luxury Healing',
   'Signature Packages (Oil)',
@@ -31,6 +32,93 @@ export const offers: Offer[] = [
   // 1. NAVRATRI GARBA GLOW OFFERS (Image 9)
   // "Navratri Ma Lago Queen Jevi"
   // ========================================================
+  {
+    id: "complete-glow-package",
+    title: "Offer 01: Complete Glow Package",
+    gujaratiTitle: "ઓફર ૦૧: પૂર્ણ ગ્લો પેકેજ",
+    packageCode: "OFFER 01",
+    category: "Evergreen",
+    tagline: "Smooth Skin, Brighter Glow: Complete Care from Brow to Toe.",
+    description: "Unveil your smoothest, most luminous skin with our Complete Glow Package. This all-inclusive grooming essential combines expert hair removal, precise brow shaping, and powerful brightening treatments.",
+    originalPrice: 1499,
+    offerPrice: 999,
+    savings: 500,
+    validUntil: "Evergreen",
+    badge: "Complete Glow Package • Save ₹500",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/001.avif",
+    includedServices: [
+      "Facial",
+      "D - Ten or Bleach",
+      "Hand Wax",
+      "Full Leg Wax",
+      "UnderArms Wax",
+      "Eyebrows"
+    ],
+    terms: [
+      "Book your appointment 2-3 days in advance.",
+      "Slots fill fast during Navratri season in Surat.",
+      "Ladies only home service."
+    ],
+    popular: false
+  },
+  {
+    id: "smooth-glow-premium-combo",
+    title: "Offer 02: Smooth & Glow Premium combo",
+    gujaratiTitle: "ઓફર ૦૨: સ્મૂથ એન્ડ ગ્લો પ્રીમિયમ પેકેજ",
+    packageCode: "OFFER 02",
+    category: "Evergreen",
+    tagline: "Upgrade Your Radiance: The Premium Touch for Silky-Smooth Glow",
+    description: "Experience the next level of salon luxury with our Smooth & Glow Premium Combo. Curated with our finest premium products, this upscale treatment delivers advanced skincare and precision grooming in one seamless session",
+    originalPrice: 1999,
+    offerPrice: 1499,
+    savings: 500,
+    validUntil: "Evergreen",
+    badge: "Smooth & Glow Premium combo • Save ₹500",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/001.avif",
+    includedServices: [
+      "Premium Facial",
+      "D - Ten or Bleach Premium",
+      "Hand Wax",
+      "Half Leg Wax",
+      "UnderArms Wax",
+      "Eyebrows"
+    ],
+    terms: [
+      "Book your appointment 2-3 days in advance.",
+      "Slots fill fast during Navratri season in Surat.",
+      "Ladies only home service."
+    ],
+    popular: true
+  },
+  {
+    id: "smooth-glow-combo",
+    title: "Offer 03: Smooth & Glow combo",
+    gujaratiTitle: "ઓફર ૦૩: સ્મૂથ એન્ડ ગ્લો પેકેજ",
+    packageCode: "OFFER 03",
+    category: "Evergreen",
+    tagline: "Upgrade Your Radiance: The Premium Touch for Silky-Smooth Glow",
+    description: "Experience the next level of salon luxury with our Smooth & Glow Premium Combo. Curated with our finest premium products, this upscale treatment delivers advanced skincare and precision grooming in one seamless session",
+    originalPrice: 1199,
+    offerPrice: 799,
+    savings: 400,
+    validUntil: "Evergreen",
+    badge: "Smooth & Glow Premium combo • Save ₹500",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/001.avif",
+    includedServices: [
+      "Facial",
+      "D - Ten or Bleach",
+      "Hand Wax",
+      "Half Leg Wax",
+      "UnderArms Wax",
+      "Eyebrows"
+    ],
+    terms: [
+      "Book your appointment 2-3 days in advance.",
+      "Slots fill fast during Navratri season in Surat.",
+      "Ladies only home service."
+    ],
+    popular: false
+  },
   {
     id: "navratri-offer-01",
     title: "Offer 01: Garba Ready Glow",
@@ -304,6 +392,70 @@ export const offers: Offer[] = [
     ],
     popular: false
   },
+  {
+    id: "4-in-1-glow-package",
+    title: "4 In 1 Glow Package Offer",
+    gujaratiTitle: "4 ઈન 1 ગ્લો પેકેજ ઓફર",
+    packageCode: "SPECIAL OFFER",
+    category: "Luxury Healing",
+    tagline: "Authentic 4 In 1 glow offering with 7 Chakra facial, Stone Eye Mask, Body Polish / Oil Body Massage, Full Wax (Hand + Leg + Underarms)",
+    description: "Balance & rejuvente your skin 7 charkra therapy for a natural glow.using colling jade stone therapy to de-puff, calm & relax tired eyes,body polish to refresh skin or soothing oil massage for deep relaxation with completing waxing for hands & legs.",
+    originalPrice: 3999,
+    offerPrice: 1999,
+    savings: 1999,
+    validUntil: "Special Limited Offer",
+    badge: "Save ₹1,999 • Only ₹1,999",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/1.jpg",
+    includedServices: [
+      "7 Chakra Crystal Placement and Energy Alignment",
+      "Stone Eye Mask Facial Treatment",
+      "Body Polish Or Oil Body Massage",
+      "Full Wax ( Hand + Leg + Underarms )"
+    ],
+    benefits: [
+      "Reduces mental stress and physical exhaustion",
+      "Relaxes facial tension lines & headache pressure",
+      "Improves sleep quality and awakens natural glow"
+    ],
+    terms: [
+      "Session duration ~ 65 minutes.",
+      "Book 2-3 days in advance."
+    ],
+    popular: true
+  },
+  {
+    id: "delux-glow-care-package",
+    title: "Delux Glow & Care Package",
+    gujaratiTitle: "ડિલક્સ ગ્લો & કેર પેકેજ",
+    packageCode: "SPECIAL OFFER",
+    category: "Luxury Healing",
+    tagline: "Head-to-Toe Radiance: The Ultimate Pampering Your Skin Deserves.",
+    description: "Indulge in the ultimate self-care experience with our Delux Glow & Care Package. This comprehensive, head-to-toe treatment combines a rejuvenating facial, precise full-body waxing, targeted tan removal, and expert nail care.",
+    originalPrice: 2499,
+    offerPrice: 1899,
+    savings: 600,
+    validUntil: "Special Limited Offer",
+    badge: "Save ₹600 • Only ₹1,899",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/1.jpg",
+    includedServices: [
+      "Facial",
+      "Full Leg Wax",
+      "D-Tan or Bleach",
+      "Underarms Wax",
+      "Hand Wax",
+      "Manicure + Pedicure "
+    ],
+    benefits: [
+      "Removes stubborn sun tan and dark spots.",
+      "Ensures long-lasting, hair-free smoothness.",
+      "Relieves stress through relaxing hand and foot massages."
+    ],
+    terms: [
+      "Session duration ~ 65 minutes.",
+      "Book 2-3 days in advance."
+    ],
+    popular: true
+  },
 
   // ========================================================
   // 3. PREMIUM SIGNATURE PACKAGES: OIL MASSAGE SERIES (Image 8)
@@ -524,7 +676,7 @@ export const offers: Offer[] = [
     packageCode: "PACKAGE 05B",
     category: "Signature Packages (Polish)",
     tagline: "The royal bridal & festive Neck, Arms, Legs Till Knees velvet skin transformation",
-    description: "The supreme pampering for brides, festive, and special celebrations. Includes deep cream body polish, Neck, Shoulder, Full Arms, Back, Stomach, Feet and Full-Legs.",
+    description: "The supreme pampering for brides, festive, and special celebrations. Includes deep cream body polish, Neck, Shoulder, Full Arms, Legs Till Knees..",
     originalPrice: 999,
     offerPrice: 699,
     savings: 299,

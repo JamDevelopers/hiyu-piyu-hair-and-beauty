@@ -45,7 +45,7 @@ export const offers: Offer[] = [
     savings: 500,
     validUntil: "Evergreen",
     badge: "Complete Glow Package • Save ₹500",
-    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/001.avif",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/11.avif",
     includedServices: [
       "Facial",
       "D - Ten or Bleach",
@@ -74,7 +74,7 @@ export const offers: Offer[] = [
     savings: 500,
     validUntil: "Evergreen",
     badge: "Smooth & Glow Premium combo • Save ₹500",
-    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/001.avif",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/11.avif",
     includedServices: [
       "Premium Facial",
       "D - Ten or Bleach Premium",
@@ -103,7 +103,7 @@ export const offers: Offer[] = [
     savings: 400,
     validUntil: "Evergreen",
     badge: "Smooth & Glow Premium combo • Save ₹500",
-    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/001.avif",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/11.avif",
     includedServices: [
       "Facial",
       "D - Ten or Bleach",
@@ -405,7 +405,7 @@ export const offers: Offer[] = [
     savings: 1999,
     validUntil: "Special Limited Offer",
     badge: "Save ₹1,999 • Only ₹1,999",
-    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/1.jpg",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/11.avif",
     includedServices: [
       "7 Chakra Crystal Placement and Energy Alignment",
       "Stone Eye Mask Facial Treatment",
@@ -436,7 +436,7 @@ export const offers: Offer[] = [
     savings: 600,
     validUntil: "Special Limited Offer",
     badge: "Save ₹600 • Only ₹1,899",
-    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/1.jpg",
+    imageUrl: "https://raw.githubusercontent.com/JamDevelopers/hiyu-piyu-hair-and-beauty/refs/heads/main/public/11.avif",
     includedServices: [
       "Facial",
       "Full Leg Wax",
